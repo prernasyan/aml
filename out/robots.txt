@@ -1,0 +1,20 @@
+
+User-agent: *
+Allow: /
+Allow: /portfolio
+Allow: /contact
+Allow: /services/3d-walkthrough-videos
+Allow: /services/virtual-reality-tours
+Allow: /services/construction-update-videos
+Allow: /services/drone-shoots
+Allow: /services/architectural-scale-models
+Allow: /services/3d-renders-isometrics
+Allow: /services/interactive-3d-tools
+Allow: /services/digital-marketing
+Allow: /services/graphics-branding
+Allow: /services/route-videos
+Allow: /services/3d-isometrics
+Allow: /services/interior-cinematic-walkthrough
+Allow: /services/real-estate-video-production-gurugram
+
+Sitemap: https://example.com/sitemap.xml
