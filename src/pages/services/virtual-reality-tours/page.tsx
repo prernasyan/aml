@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "../../../components/feature/Header";
 import Footer from "../../../components/feature/Footer";
 import { Link } from "react-router-dom";
+import PortfolioSection from "../../home/components/PortfolioSection";
 
 export default function VirtualRealityToursPage() {
   const [formData, setFormData] = useState({
@@ -473,7 +474,7 @@ export default function VirtualRealityToursPage() {
             </div>
           </div>
         </section>
-
+        <PortfolioSection />
         {/* Contact Form Section */}
         <section className="py-24 bg-yellow-400">
           <div className="container mx-auto px-6">
