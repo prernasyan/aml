@@ -9,8 +9,7 @@ const portfolioItems = [
     id: 1,
     title: "Etereo 1, Goa",
     category: "3D Walkthrough",
-    image:
-      "https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/7d1a7b2654dbbd990ff9a0d69399d49c.png",
+    image: "/images/portfolio/1.png",
     description:
       "Cinematic 3D walkthrough showcasing luxury residential units with panoramic city views.",
     videoUrl: "https://www.youtube.com/embed/BiCCdx0fDik?autoplay=1&t",
@@ -20,8 +19,7 @@ const portfolioItems = [
     id: 2,
     title: "Shree Radha Gopal Residency, Kosi",
     category: "VR Experience",
-    image:
-      "https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/bf9b9f4a6907bcd5e362967e58db6657.png",
+    image: "/images/portfolio/2.png",
     description:
       "Interactive VR tour of a residential plotted development with modern amenities and green spaces.",
     videoUrl: "https://amlabs.cloud/SRMG_V06/",
@@ -31,8 +29,7 @@ const portfolioItems = [
     id: 3,
     title: "Province D Olympia, Noida",
     category: "Location AV",
-    image:
-      "https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/2ef363fa71622e5ffcaa49d73762d286.png",
+    image: "/images/portfolio/3.png",
     description:
       "Professional location showcase highlighting the prime Noida location and premium real estate development with excellent connectivity and modern infrastructure.",
     videoUrl:
@@ -42,8 +39,7 @@ const portfolioItems = [
     id: 4,
     title: "Multiple Projects",
     category: "3D Rendering",
-    image:
-      "https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/cad1ec69f9736a7d84b083bbd59bbe44.png",
+    image: "/images/portfolio/4.png",
     description:
       "Comprehensive collection of 3D still renders showcasing various residential developments with detailed architectural visualization",
     videoUrl:
@@ -51,27 +47,27 @@ const portfolioItems = [
     hasSlider: true,
     sliderImages: [
       {
-        url: "https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/bbb5436b3c93aedf6fb7a2ce4ee35e14.png",
+        url: "/images/portfolio/5.png",
         title: "Luxury Residential Complex",
         description: "Modern residential development with premium amenities",
       },
       {
-        url: "https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/2de44ef8bca3d7bbed54ea1868b20a85.png",
+        url: "/images/portfolio/6.png",
         title: "Premium Interior Design",
         description: "Sophisticated interior spaces with modern finishes",
       },
       {
-        url: "https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/57ac807618496ffda77652e72b070eff.png",
+        url: "/images/portfolio/7.png",
         title: "High-Rise Development",
         description: "Urban residential tower with panoramic city views",
       },
       {
-        url: "https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/bfc7eae56a5f96cd635c7eb9cc6db5fc.png",
+        url: "/images/portfolio/8.png",
         title: "Premium Villa Project",
         description: "Exclusive villa development with luxury amenities",
       },
       {
-        url: "https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/97b3c83067efd731f4adc318653864f9.png",
+        url: "/images/portfolio/9.png",
         title: "Master Plan Visualization",
         description: "Complete residential development master planning",
       },
@@ -81,8 +77,7 @@ const portfolioItems = [
     id: 5,
     title: "Pyramid Alban, Gurugram",
     category: "Construction Updates",
-    image:
-      "https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/5582e4121b59f46ffabe025a8d67dc24.png",
+    image: "/images/portfolio/10.png",
     description:
       "Comprehensive construction progress documentation of premium residential project with detailed milestone markers and progress tracking.",
     videoUrl:
@@ -92,8 +87,7 @@ const portfolioItems = [
     id: 6,
     title: "Yuu by Nahar, Mumbai",
     category: "Interactive 3D",
-    image:
-      "https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/8173ab7e42cdb17b0403da87035eb759.png",
+    image: "/images/portfolio/13.png",
     description:
       "Interactive residential apartment configurator allowing buyers to customize layouts, finishes, and amenities in real-time for premium Mumbai living.",
     videoUrl: "https://amlabs.cloud/Nahar_VR/",
@@ -103,8 +97,7 @@ const portfolioItems = [
     id: 7,
     title: "Hero Homes-The Palatial, Gurugram",
     category: "Route Videos",
-    image:
-      "https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/6a13795374b51176f221bbc208458661.png",
+    image: "/images/portfolio/14.png",
     description:
       "Dynamic route visualization showcasing different approach routes to reach the project site highlighting nearby landmarks and markers for easy navigation.",
     videoUrl:
@@ -114,8 +107,7 @@ const portfolioItems = [
     id: 8,
     title: "Residential Complex Isometrics",
     category: "3D Isometrics",
-    image:
-      "https://readdy.ai/api/search-image?query=Professional%203D%20isometric%20architectural%20visualization%20of%20modern%20residential%20complex%20with%20multiple%20buildings%2C%20detailed%20floor%20plans%2C%20landscaping%20elements%2C%20parking%20areas%2C%20and%20amenities%20shown%20in%20technical%20isometric%20perspective%2C%20clean%20white%20background%2C%20architectural%20drawing%20style%2C%20precise%20geometric%20details&width=400&height=300&seq=isometric-1&orientation=landscape",
+    image: "/images/portfolio/28.png",
     description:
       "Technical isometric visualizations providing comprehensive overview of architectural layouts and spatial relationships.",
     videoUrl:
@@ -125,8 +117,7 @@ const portfolioItems = [
     id: 9,
     title: "Hero Homes, Ludhiana",
     category: "Interior Cinematic Walkthrough",
-    image:
-      "https://readdy.ai/api/search-image?query=Cinematic%20interior%20walkthrough%20of%20luxury%20villa%20showcasing%20elegant%20living%20spaces%2C%20modern%20kitchen%2C%20sophisticated%20bedroom%2C%20marble%20bathrooms%2C%20high-end%20furniture%20and%20fixtures%2C%20warm%20ambient%20lighting%2C%20professional%20real%20estate%20photography%20style%2C%20contemporary%20design%20elements&width=400&height=300&seq=interior-walkthrough-1&orientation=landscape",
+    image: "/images/portfolio/19.jpg",
     description:
       "Immersive interior walkthrough highlighting the sophisticated apartment interiors with premium finishes, modern amenities, and elegant design elements.",
     videoUrl:
@@ -136,8 +127,7 @@ const portfolioItems = [
     id: 23,
     title: "Rising Homes, Gurugram",
     category: "Interior Cinematic Walkthrough",
-    image:
-      "https://readdy.ai/api/search-image?query=Cinematic%20interior%20walkthrough%20of%20luxury%20penthouse%20featuring%20panoramic%20city%20views%2C%20premium%20materials%2C%20designer%20furniture%2C%20wine%20cellar%2C%20home%20theater%2C%20sophisticated%20lighting%2C%20high-end%20finishes%2C%20contemporary%20luxury%20design%2C%20professional%20real%20estate%20cinematography&width=400&height=300&seq=interior-walkthrough-4&orientation=landscape",
+    image: "/images/portfolio/20.png",
     description:
       "Immersive interior walkthrough highlighting the sophisticated apartment interiors with premium finishes, modern amenities, and elegant design elements.",
     videoUrl:
@@ -147,8 +137,7 @@ const portfolioItems = [
     id: 10,
     title: "Township Development Model",
     category: "Architectural Scale Models",
-    image:
-      "https://readdy.ai/api/search-image?query=Professional%20architectural%20scale%20model%20of%20large%20township%20development%20with%20miniature%20buildings%2C%20landscaping%2C%20roads%2C%20and%20infrastructure%2C%20displayed%20on%20clean%20presentation%20table%2C%20detailed%20craftsmanship%2C%20realistic%20materials%20and%20textures%2C%20professional%20studio%20lighting%2C%20architectural%20model%20photography&width=400&height=300&seq=scale-model-1&orientation=landscape",
+    image: "/images/portfolio/22.jpg",
     description:
       "Physical and digital scale models providing tangible representation of architectural concepts and development masterplans.",
     videoUrl:
@@ -158,8 +147,7 @@ const portfolioItems = [
     id: 11,
     title: "Luxury Commercial Complex",
     category: "3D Walkthrough",
-    image:
-      "https://readdy.ai/api/search-image?query=Modern%20luxury%20commercial%20complex%20with%20glass%20facades%2C%20contemporary%20architecture%2C%20professional%20business%20environment%2C%20high-end%20retail%20spaces%2C%20office%20towers%2C%20landscaped%20plaza%20areas%2C%20evening%20lighting%2C%20architectural%20visualization%20style%2C%20premium%20commercial%20development&width=400&height=300&seq=commercial-1&orientation=landscape",
+    image: "/images/portfolio/29.jpg",
     description:
       "Sophisticated commercial development featuring modern office spaces and premium retail environments.",
     videoUrl:
@@ -169,8 +157,7 @@ const portfolioItems = [
     id: 12,
     title: "Heritage Hotel Restoration",
     category: "VR Experience",
-    image:
-      "https://readdy.ai/api/search-image?query=Heritage%20hotel%20restoration%20project%20showcasing%20blend%20of%20traditional%20architecture%20with%20modern%20amenities%2C%20colonial%20style%20building%20with%20contemporary%20interiors%2C%20luxury%20hospitality%20design%2C%20historical%20preservation%20meets%20modern%20comfort%2C%20elegant%20facade%20restoration&width=400&height=300&seq=heritage-1&orientation=landscape",
+    image: "/images/portfolio/30.jpg",
     description:
       "Virtual tour of heritage hotel restoration blending historical architecture with contemporary luxury amenities.",
     videoUrl:
@@ -180,8 +167,7 @@ const portfolioItems = [
     id: 13,
     title: "Smart City Infrastructure",
     category: "Location AV",
-    image:
-      "https://readdy.ai/api/search-image?query=Smart%20city%20infrastructure%20development%20with%20modern%20transportation%20systems%2C%20green%20buildings%2C%20sustainable%20urban%20planning%2C%20technology%20integration%2C%20futuristic%20cityscape%2C%20clean%20energy%20solutions%2C%20connected%20urban%20environment%2C%20aerial%20perspective&width=400&height=300&seq=smartcity-1&orientation=landscape",
+    image: "/images/portfolio/31.jpg",
     description:
       "Comprehensive smart city development showcasing integrated infrastructure and sustainable urban planning solutions.",
     videoUrl:
@@ -191,8 +177,7 @@ const portfolioItems = [
     id: 14,
     title: "Waterfront Residences",
     category: "3D Rendering",
-    image:
-      "https://readdy.ai/api/search-image?query=Luxury%20waterfront%20residential%20development%20with%20modern%20apartments%20overlooking%20pristine%20lake%2C%20contemporary%20architecture%2C%20glass%20balconies%2C%20landscaped%20waterfront%20promenade%2C%20sunset%20lighting%2C%20premium%20lakeside%20living%2C%20architectural%20rendering%20style&width=400&height=300&seq=waterfront-1&orientation=landscape",
+    image: "/images/portfolio/32.jpg",
     description:
       "Premium waterfront residential project featuring contemporary design and stunning lake views.",
     videoUrl:
@@ -202,8 +187,7 @@ const portfolioItems = [
     id: 15,
     title: "Smart World- The Edition, Gurugram",
     category: "Construction Updates",
-    image:
-      "https://readdy.ai/api/search-image?query=Modern%20multi-tower%20residential%20construction%20project%20in%20Gurugram%20with%20premium%20high-rise%20buildings%20under%20development%2C%20construction%20cranes%2C%20steel%20and%20concrete%20framework%2C%20luxury%20residential%20complex%20progress%20documentation%2C%20contemporary%20architecture%2C%20construction%20milestone%20tracking&width=400&height=300&seq=metro-1&orientation=landscape",
+    image: "/images/portfolio/33.jpg",
     description:
       "Comprehensive construction progress documentation highlighting the development of multi-tower residential project with premium amenities and modern architectural design.",
     videoUrl:
@@ -213,8 +197,7 @@ const portfolioItems = [
     id: 16,
     title: "House of Hiranandani, Mumbai",
     category: "VR Experience",
-    image:
-      "https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/13ec1b4216e30180cf09cab872d325bd.png",
+    image: "/images/portfolio/23.png",
     description:
       "Immersive VR tour of premium shopping mall featuring interactive retail spaces and modern commercial architecture.",
     videoUrl: "https://amlabs.cloud/HOH-V2/",
@@ -224,8 +207,7 @@ const portfolioItems = [
     id: 17,
     title: "Province D Olympia, Noida",
     category: "VR Experience",
-    image:
-      "https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/452f2545a1ee6b755317f454d585315e.png",
+    image: "/images/portfolio/3.png",
     description: "Residential plotted development",
     videoUrl: "https://amlabs.cloud/ATS_PDO/",
     isExternal: true,
@@ -234,8 +216,7 @@ const portfolioItems = [
     id: 18,
     title: "Resort & Spa VR Journey",
     category: "VR Experience",
-    image:
-      "https://readdy.ai/api/search-image?query=Luxury%20resort%20and%20spa%20complex%20with%20virtual%20reality%20experience%2C%20tropical%20paradise%20setting%2C%20infinity%20pools%2C%20spa%20facilities%2C%20beachfront%20villas%2C%20lush%20landscaping%2C%20premium%20hospitality%20design%2C%20sunset%20lighting%2C%20vacation%20destination%20photography&width=400&height=300&seq=vr-resort-1&orientation=landscape",
+    image: "/images/portfolio/25.jpg",
     description:
       "Comprehensive VR experience showcasing luxury resort amenities, spa facilities, and premium accommodation options.",
     videoUrl:
@@ -246,8 +227,7 @@ const portfolioItems = [
     id: 19,
     title: "Altura DXP 92, Gurugram",
     category: "Location AV",
-    image:
-      "https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/03904ca42a7bed6c84c7b379707456c5.png",
+    image: "/images/portfolio/26.png",
     description:
       "Infographical location AV showcasing Altura DXP 92 development in Gurugram with comprehensive visual presentation and detailed project information.",
     videoUrl:
@@ -257,8 +237,7 @@ const portfolioItems = [
     id: 20,
     title: "Shree Radha Gopal Residency, Kosi",
     category: "Location AV",
-    image:
-      "https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/30430b59183d8ae1262c10573ce98c55.png",
+    image: "/images/portfolio/2.png",
     description:
       "Highlighting spiritual location of Kosi along with project highlights showcasing the serene environment and premium residential development features.",
     videoUrl:

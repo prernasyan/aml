@@ -13,7 +13,7 @@ export default function ArchitecturalScaleModelsPage() {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url('https://readdy.ai/api/search-image?query=Professional%20architectural%20scale%20model%20of%20modern%20building%20on%20clean%20white%20surface%2C%20detailed%20miniature%20construction%2C%20professional%20studio%20lighting%2C%20architectural%20visualization%2C%20clean%20minimalist%20background&width=1920&height=1080&seq=scale-model-hero&orientation=landscape')`,
+              backgroundImage: `url('/images/services/architectural-scale-models/1.jpg')`,
             }}
           ></div>
           <div className="container mx-auto px-6 relative z-10">
@@ -159,7 +159,7 @@ export default function ArchitecturalScaleModelsPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Detailed%20architectural%20scale%20model%20of%20residential%20complex%2C%20miniature%20buildings%20with%20landscaping%2C%20professional%20model%20photography%2C%20clean%20studio%20background&width=400&height=300&seq=model-portfolio-1&orientation=landscape"
+                  src="/images/services/architectural-scale-models/2.jpg"
                   alt="Residential Complex Model"
                   className="w-full h-48 object-cover object-top"
                 />
@@ -180,7 +180,7 @@ export default function ArchitecturalScaleModelsPage() {
 
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Commercial%20office%20building%20scale%20model%20with%20detailed%20facade%2C%20miniature%20architecture%2C%20professional%20lighting%2C%20architectural%20model%20showcase&width=400&height=300&seq=model-portfolio-2&orientation=landscape"
+                  src="/images/services/architectural-scale-models/3.jpg"
                   alt="Office Building Model"
                   className="w-full h-48 object-cover object-top"
                 />
@@ -201,7 +201,7 @@ export default function ArchitecturalScaleModelsPage() {
 
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Mixed-use%20development%20scale%20model%20with%20retail%20and%20residential%20components%2C%20detailed%20miniature%20architecture%2C%20professional%20model%20photography&width=400&height=300&seq=model-portfolio-3&orientation=landscape"
+                  src="/images/services/architectural-scale-models/4.jpg"
                   alt="Mixed-Use Model"
                   className="w-full h-48 object-cover object-top"
                 />
@@ -222,7 +222,7 @@ export default function ArchitecturalScaleModelsPage() {
 
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Shopping%20mall%20scale%20model%20with%20multiple%20levels%2C%20detailed%20interior%20layout%2C%20architectural%20miniature%20with%20lighting%20effects&width=400&height=300&seq=model-portfolio-4&orientation=landscape"
+                  src="/images/services/architectural-scale-models/5.jpg"
                   alt="Shopping Mall Model"
                   className="w-full h-48 object-cover object-top"
                 />
@@ -243,7 +243,7 @@ export default function ArchitecturalScaleModelsPage() {
 
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Hospital%20complex%20scale%20model%20with%20multiple%20buildings%2C%20detailed%20medical%20facility%20architecture%2C%20professional%20architectural%20model&width=400&height=300&seq=model-portfolio-5&orientation=landscape"
+                  src="/images/services/architectural-scale-models/6.jpg"
                   alt="Hospital Complex Model"
                   className="w-full h-48 object-cover object-top"
                 />
@@ -264,7 +264,7 @@ export default function ArchitecturalScaleModelsPage() {
 
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=University%20campus%20scale%20model%20with%20multiple%20academic%20buildings%2C%20landscaped%20grounds%2C%20detailed%20educational%20facility%20architecture&width=400&height=300&seq=model-portfolio-6&orientation=landscape"
+                  src="/images/services/architectural-scale-models/7.jpg"
                   alt="University Campus Model"
                   className="w-full h-48 object-cover object-top"
                 />

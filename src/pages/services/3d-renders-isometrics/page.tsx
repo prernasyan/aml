@@ -13,7 +13,7 @@ export default function ThreeDRendersIsometricsPage() {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url('https://readdy.ai/api/search-image?query=Professional%203D%20architectural%20rendering%20of%20modern%20luxury%20building%20with%20isometric%20perspective%2C%20clean%20white%20background%2C%20photorealistic%20visualization%2C%20architectural%20design%20showcase%2C%20professional%20lighting&width=1920&height=1080&seq=3d-renders-hero&orientation=landscape')`,
+              backgroundImage: `url('/images/services/3d-renders-isometrics/1.jpg')`,
             }}
           ></div>
           <div className="container mx-auto px-6 relative z-10">
@@ -159,7 +159,7 @@ export default function ThreeDRendersIsometricsPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Luxury%20residential%20tower%203D%20render%20with%20modern%20architecture%2C%20glass%20facade%2C%20landscaped%20surroundings%2C%20photorealistic%20visualization%2C%20professional%20architectural%20rendering&width=400&height=300&seq=portfolio-1&orientation=landscape"
+                  src="/images/services/3d-renders-isometrics/2.jpg"
                   alt="Residential Tower Render"
                   className="w-full h-48 object-cover object-top"
                 />
@@ -180,7 +180,7 @@ export default function ThreeDRendersIsometricsPage() {
 
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Modern%20commercial%20office%20building%203D%20render%2C%20contemporary%20architecture%2C%20glass%20and%20steel%20construction%2C%20urban%20setting%2C%20professional%20visualization&width=400&height=300&seq=portfolio-2&orientation=landscape"
+                  src="/images/services/3d-renders-isometrics/3.jpg"
                   alt="Commercial Building Render"
                   className="w-full h-48 object-cover object-top"
                 />
@@ -201,7 +201,7 @@ export default function ThreeDRendersIsometricsPage() {
 
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Mixed-use%20development%203D%20render%20with%20retail%2C%20residential%20and%20office%20spaces%2C%20modern%20urban%20architecture%2C%20pedestrian-friendly%20design&width=400&height=300&seq=portfolio-3&orientation=landscape"
+                  src="/images/services/3d-renders-isometrics/4.jpg"
                   alt="Mixed-Use Development Render"
                   className="w-full h-48 object-cover object-top"
                 />
@@ -222,7 +222,7 @@ export default function ThreeDRendersIsometricsPage() {
 
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Multiple%20residential%20development%203D%20renders%20showcase%2C%20various%20apartment%20buildings%20and%20housing%20projects%2C%20photorealistic%20architectural%20visualization%20collection%2C%20modern%20residential%20architecture%20portfolio&width=400&height=300&seq=portfolio-4-updated&orientation=landscape"
+                  src="/images/services/3d-renders-isometrics/5.jpg"
                   alt="Multiple Residential Projects"
                   className="w-full h-48 object-cover object-top"
                 />
@@ -244,7 +244,7 @@ export default function ThreeDRendersIsometricsPage() {
 
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Shopping%20mall%203D%20render%20with%20modern%20retail%20architecture%2C%20glass%20atrium%2C%20multiple%20levels%2C%20contemporary%20commercial%20design&width=400&height=300&seq=portfolio-5&orientation=landscape"
+                  src="/images/services/3d-renders-isometrics/6.jpg"
                   alt="Shopping Mall Render"
                   className="w-full h-48 object-cover object-top"
                 />
@@ -265,7 +265,7 @@ export default function ThreeDRendersIsometricsPage() {
 
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Isometric%20architectural%20illustration%20of%20residential%20complex%2C%20technical%20drawing%20style%2C%20clean%20lines%2C%20detailed%20building%20layout%2C%20professional%20visualization&width=400&height=300&seq=portfolio-6&orientation=landscape"
+                  src="/images/services/3d-renders-isometrics/7.jpg"
                   alt="Isometric Illustration"
                   className="w-full h-48 object-cover object-top"
                 />

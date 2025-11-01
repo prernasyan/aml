@@ -75,14 +75,14 @@ export default function VirtualRealityToursPage() {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url('https://readdy.ai/api/search-image?query=Person%20wearing%20VR%20headset%20exploring%20modern%20luxury%20apartment%20interior%2C%20futuristic%20technology%2C%20immersive%20virtual%20reality%20experience%2C%20clean%20white%20background%2C%20professional%20lighting%2C%20high-tech%20visualization&width=1920&height=1080&seq=vr-hero&orientation=landscape')`,
+              backgroundImage: `url('/images/services/virtual-reality-tours/1.jpg')`,
             }}
           ></div>
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-4xl">
               <div className="w-20 h-20 bg-yellow-400 rounded-2xl flex items-center justify-center mb-8">
                 <img
-                  src="https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/fe7a09b49ca15138bec4a79058f6a337.png"
+                  src="/images/services/virtual-reality-tours/2.png"
                   alt="VR"
                   className="w-10 h-10"
                 />
@@ -130,7 +130,7 @@ export default function VirtualRealityToursPage() {
               <div className="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-shadow">
                 <div className="w-16 h-16 bg-yellow-400 rounded-xl flex items-center justify-center mb-6">
                   <img
-                    src="https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/fe7a09b49ca15138bec4a79058f6a337.png"
+                    src="/images/services/virtual-reality-tours/2.png"
                     alt="VR"
                     className="w-8 h-8"
                   />
@@ -231,7 +231,7 @@ export default function VirtualRealityToursPage() {
                   <div className="flex items-start space-x-4">
                     <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <img
-                        src="https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/fe7a09b49ca15138bec4a79058f6a337.png"
+                        src="/images/services/virtual-reality-tours/2.png"
                         alt="VR"
                         className="w-4 h-4"
                       />
@@ -292,7 +292,7 @@ export default function VirtualRealityToursPage() {
               </div>
               <div className="relative">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Modern%20VR%20headset%20and%20controllers%20on%20clean%20white%20surface%2C%20high-tech%20virtual%20reality%20equipment%2C%20professional%20product%20photography%2C%20minimalist%20background%2C%20futuristic%20technology%20showcase&width=600&height=400&seq=vr-tech&orientation=landscape"
+                  src="/images/services/virtual-reality-tours/3.jpg"
                   alt="VR Technology"
                   className="rounded-2xl shadow-2xl w-full h-96 object-cover object-top"
                 />
@@ -318,7 +318,7 @@ export default function VirtualRealityToursPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Person%20wearing%20VR%20headset%20exploring%20luxury%20apartment%20interior%2C%20virtual%20reality%20real%20estate%20experience%2C%20immersive%20property%20tour&width=400&height=300&seq=vr-portfolio-1&orientation=landscape"
+                  src="/images/services/virtual-reality-tours/4.jpg"
                   alt="Luxury Apartment VR"
                   className="w-full h-48 object-cover object-top"
                 />
@@ -332,7 +332,7 @@ export default function VirtualRealityToursPage() {
                   </p>
                   <div className="flex items-center text-sm text-gray-500">
                     <img
-                      src="https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/fe7a09b49ca15138bec4a79058f6a337.png"
+                      src="/images/services/virtual-reality-tours/2.png"
                       alt="VR"
                       className="w-4 h-4 mr-2"
                     />
@@ -343,7 +343,7 @@ export default function VirtualRealityToursPage() {
 
               <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Virtual%20reality%20office%20space%20tour%2C%20commercial%20real%20estate%20VR%20experience%2C%20modern%20office%20interior%20in%20VR%20headset&width=400&height=300&seq=vr-portfolio-2&orientation=landscape"
+                  src="/images/services/virtual-reality-tours/5.jpg"
                   alt="Office Space VR"
                   className="w-full h-48 object-cover object-top"
                 />
@@ -357,7 +357,7 @@ export default function VirtualRealityToursPage() {
                   </p>
                   <div className="flex items-center text-sm text-gray-500">
                     <img
-                      src="https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/fe7a09b49ca15138bec4a79058f6a337.png"
+                      src="/images/services/virtual-reality-tours/2.png"
                       alt="VR"
                       className="w-4 h-4 mr-2"
                     />
@@ -368,7 +368,7 @@ export default function VirtualRealityToursPage() {
 
               <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Virtual%20reality%20shopping%20mall%20experience%2C%20retail%20space%20VR%20tour%2C%20commercial%20development%20virtual%20walkthrough&width=400&height=300&seq=vr-portfolio-3&orientation=landscape"
+                  src="/images/services/virtual-reality-tours/6.jpg"
                   alt="Shopping Mall VR"
                   className="w-full h-48 object-cover object-top"
                 />
@@ -382,7 +382,7 @@ export default function VirtualRealityToursPage() {
                   </p>
                   <div className="flex items-center text-sm text-gray-500">
                     <img
-                      src="https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/fe7a09b49ca15138bec4a79058f6a337.png"
+                      src="/images/services/virtual-reality-tours/2.png"
                       alt="VR"
                       className="w-4 h-4 mr-2"
                     />
@@ -393,7 +393,7 @@ export default function VirtualRealityToursPage() {
 
               <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Virtual%20reality%20hotel%20suite%20tour%2C%20hospitality%20VR%20experience%2C%20luxury%20hotel%20room%20virtual%20walkthrough&width=400&height=300&seq=vr-portfolio-4&orientation=landscape"
+                  src="/images/services/virtual-reality-tours/7.jpg"
                   alt="Hotel VR Experience"
                   className="w-full h-48 object-cover object-top"
                 />
@@ -414,7 +414,7 @@ export default function VirtualRealityToursPage() {
 
               <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Virtual%20reality%20residential%20community%20tour%2C%20neighborhood%20VR%20experience%2C%20housing%20development%20virtual%20walkthrough&width=400&height=300&seq=vr-portfolio-5&orientation=landscape"
+                  src="/images/services/virtual-reality-tours/8.jpg"
                   alt="Community VR Tour"
                   className="w-full h-48 object-cover object-top"
                 />
@@ -428,7 +428,7 @@ export default function VirtualRealityToursPage() {
                   </p>
                   <div className="flex items-center text-sm text-gray-500">
                     <img
-                      src="https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/fe7a09b49ca15138bec4a79058f6a337.png"
+                      src="/images/services/virtual-reality-tours/2.png"
                       alt="VR"
                       className="w-4 h-4 mr-2"
                     />
@@ -439,7 +439,7 @@ export default function VirtualRealityToursPage() {
 
               <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Virtual%20reality%20construction%20site%20preview%2C%20development%20VR%20experience%2C%20future%20building%20visualization%20in%20VR&width=400&height=300&seq=vr-portfolio-6&orientation=landscape"
+                  src="/images/services/virtual-reality-tours/9.jpg"
                   alt="Development Preview VR"
                   className="w-full h-48 object-cover object-top"
                 />
@@ -453,7 +453,7 @@ export default function VirtualRealityToursPage() {
                   </p>
                   <div className="flex items-center text-sm text-gray-500">
                     <img
-                      src="https://static.readdy.ai/image/8d54cefc56aae77b02ec7dea9869daf3/fe7a09b49ca15138bec4a79058f6a337.png"
+                      src="/images/services/virtual-reality-tours/2.png"
                       alt="VR"
                       className="w-4 h-4 mr-2"
                     />

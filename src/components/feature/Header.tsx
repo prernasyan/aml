@@ -50,11 +50,17 @@ export default function Header() {
     setIsMenuOpen(false);
   };
 
-  const dropdownRef = useRef(null);
+  // Fix TypeScript error by properly typing the ref
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    function handleClickOutside(event: { target: any }) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    function handleClickOutside(event: MouseEvent) {
+      // Only close dropdown if clicking outside on desktop
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node) &&
+        window.innerWidth >= 768 // md breakpoint
+      ) {
         setIsServicesOpen(false);
       }
     }
@@ -223,6 +229,7 @@ export default function Header() {
               <Link
                 to="/contact"
                 className="text-white hover:text-yellow-400 transition-colors cursor-pointer"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Contact
               </Link>

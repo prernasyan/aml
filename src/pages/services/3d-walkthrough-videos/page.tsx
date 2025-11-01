@@ -24,8 +24,7 @@ export default function WalkthroughVideosPage() {
       title: "Luxury Residential Complex",
       description:
         "Premium apartment complex with modern amenities and landscaping",
-      image:
-        "https://readdy.ai/api/search-image?query=luxury%20modern%20residential%20apartment%20complex%20with%20glass%20facades%2C%20contemporary%20architecture%2C%20beautiful%20landscaping%2C%20swimming%20pool%2C%20premium%20amenities%2C%20professional%20architectural%20visualization%2C%20clean%20white%20background%2C%20high-end%20real%20estate%20development&width=600&height=400&seq=walkthrough1&orientation=landscape",
+      image: "/images/services/3d-walkthrough-videos/1.jpg",
       duration: "3:45",
       category: "Residential",
     },
@@ -34,8 +33,7 @@ export default function WalkthroughVideosPage() {
       title: "Corporate Office Tower",
       description:
         "25-story commercial building with state-of-the-art facilities",
-      image:
-        "https://readdy.ai/api/search-image?query=modern%20corporate%20office%20tower%20building%2C%20glass%20and%20steel%20architecture%2C%20professional%20business%20district%2C%20contemporary%20commercial%20real%20estate%2C%20sleek%20design%2C%20urban%20skyline%2C%20architectural%20visualization%2C%20clean%20background&width=600&height=400&seq=walkthrough2&orientation=landscape",
+      image: "/images/services/3d-walkthrough-videos/2.jpg",
       duration: "4:20",
       category: "Commercial",
     },
@@ -43,8 +41,7 @@ export default function WalkthroughVideosPage() {
       id: 3,
       title: "Shopping Mall Complex",
       description: "Multi-level retail center with entertainment zones",
-      image:
-        "https://readdy.ai/api/search-image?query=modern%20shopping%20mall%20complex%2C%20multi-level%20retail%20center%2C%20contemporary%20architecture%2C%20glass%20facades%2C%20entertainment%20zones%2C%20commercial%20real%20estate%20visualization%2C%20professional%20architectural%20rendering%2C%20clean%20background&width=600&height=400&seq=walkthrough3&orientation=landscape",
+      image: "/images/services/3d-walkthrough-videos/3.jpg",
       duration: "5:15",
       category: "Retail",
     },
@@ -53,8 +50,7 @@ export default function WalkthroughVideosPage() {
       title: "Boutique Hotel Resort",
       description:
         "Luxury hospitality project with spa and conference facilities",
-      image:
-        "https://readdy.ai/api/search-image?query=luxury%20boutique%20hotel%20resort%2C%20modern%20hospitality%20architecture%2C%20spa%20facilities%2C%20conference%20center%2C%20premium%20real%20estate%20development%2C%20professional%20architectural%20visualization%2C%20elegant%20design%2C%20clean%20background&width=600&height=400&seq=walkthrough4&orientation=landscape",
+      image: "/images/services/3d-walkthrough-videos/4.jpg",
       duration: "6:30",
       category: "Hospitality",
     },
@@ -62,8 +58,7 @@ export default function WalkthroughVideosPage() {
       id: 5,
       title: "Educational Campus",
       description: "Modern university campus with research facilities",
-      image:
-        "https://readdy.ai/api/search-image?query=modern%20university%20campus%2C%20educational%20buildings%2C%20research%20facilities%2C%20contemporary%20academic%20architecture%2C%20student%20amenities%2C%20professional%20architectural%20visualization%2C%20clean%20campus%20environment%2C%20bright%20background&width=600&height=400&seq=walkthrough5&orientation=landscape",
+      image: "/images/services/3d-walkthrough-videos/5.jpg",
       duration: "4:45",
       category: "Educational",
     },
@@ -71,8 +66,7 @@ export default function WalkthroughVideosPage() {
       id: 6,
       title: "Healthcare Facility",
       description: "State-of-the-art medical center with advanced equipment",
-      image:
-        "https://readdy.ai/api/search-image?query=modern%20healthcare%20facility%2C%20medical%20center%20architecture%2C%20hospital%20building%2C%20advanced%20medical%20equipment%2C%20professional%20healthcare%20real%20estate%2C%20contemporary%20design%2C%20clean%20medical%20environment%2C%20bright%20background&width=600&height=400&seq=walkthrough6&orientation=landscape",
+      image: "/images/services/3d-walkthrough-videos/6.jpg",
       duration: "3:55",
       category: "Healthcare",
     },
@@ -136,7 +130,7 @@ export default function WalkthroughVideosPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=professional%203D%20architectural%20walkthrough%20visualization%2C%20modern%20building%20interior%20and%20exterior%2C%20cinematic%20camera%20movement%2C%20high-quality%20rendering%2C%20real%20estate%20visualization%20technology%2C%20professional%20architectural%20animation%2C%20clean%20modern%20design%2C%20dramatic%20lighting&width=1920&height=1080&seq=walkthroughhero&orientation=landscape')`,
+            backgroundImage: `url('/images/services/3d-walkthrough-videos/7.jpg')`,
           }}
         ></div>
         <div className="absolute inset-0 bg-black/80"></div>
