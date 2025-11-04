@@ -56,7 +56,7 @@ const clientLogos = [
   },
   {
     name: "Skyline Realty",
-    logo: "/images/testimonial/11.jpg",
+    logo: "/images/testimonial/11.png",
   },
   {
     name: "Metro Construction",
