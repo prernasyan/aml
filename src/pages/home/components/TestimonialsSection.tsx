@@ -1,75 +1,75 @@
 const testimonials = [
   {
-    name: "Sarah Chen",
-    position: "Development Director",
-    company: "Pinnacle Properties",
+    name: "Sherin Rajan",
+    position: "Marketing Manager",
+    company: "Hero Realty",
     content:
-      "Alliance Media Labs transformed our marketing approach. Their 3D walkthroughs increased our pre-sales by 40% and gave clients confidence in their investment.",
-    avatar: "/images/testimonial/1.jpg",
-  },
-  {
-    name: "Michael Rodriguez",
-    position: "CEO",
-    company: "Urban Developments",
-    content:
-      "The VR tours they created for our luxury condos were game-changing. Clients could experience the space before construction was complete.",
+      "We recently collaborated with Alliance Media for a location video of The Palatial, and they delivered exceptional work. Their attention to detail, creative approach, and seamless execution truly elevated the showcase. Highly recommend them for premium real estate visual storytelling.",
     avatar: "/images/testimonial/2.jpg",
   },
-  {
-    name: "Emily Watson",
-    position: "Marketing Manager",
-    company: "Skyline Realty",
-    content:
-      "Their drone cinematography and construction updates kept our investors engaged throughout the entire development process. Exceptional quality and service.",
-    avatar: "/images/testimonial/3.jpg",
-  },
+  // {
+  //   name: "Michael Rodriguez",
+  //   position: "CEO",
+  //   company: "Urban Developments",
+  //   content:
+  //     "The VR tours they created for our luxury condos were game-changing. Clients could experience the space before construction was complete.",
+  //   avatar: "/images/testimonial/2.jpg",
+  // },
+  // {
+  //   name: "Emily Watson",
+  //   position: "Marketing Manager",
+  //   company: "Skyline Realty",
+  //   content:
+  //     "Their drone cinematography and construction updates kept our investors engaged throughout the entire development process. Exceptional quality and service.",
+  //   avatar: "/images/testimonial/3.jpg",
+  // },
 ];
 
 const clientLogos = [
   {
     name: "Hero Homes",
-    logo: "/images/testimonial/4.png",
+    logo: "/images/testimonial/Eka.png",
   },
   {
     name: "Client Logo 2",
-    logo: "/images/testimonial/5.png",
+    logo: "/images/testimonial/Etereo.png",
   },
   {
     name: "Client Logo 3",
-    logo: "/images/testimonial/6.png",
+    logo: "/images/testimonial/Experion.png",
   },
   {
     name: "Pyramid Infratech",
-    logo: "/images/testimonial/7.png",
+    logo: "/images/testimonial/Fute.png",
   },
   {
     name: "Client Logo 5",
-    logo: "/images/testimonial/8.png",
+    logo: "/images/testimonial/Gulnaar.png",
   },
   {
     name: "Pinnacle Properties",
-    logo: "/images/testimonial/9.jpg",
+    logo: "/images/testimonial/OPS.png",
   },
   {
     name: "Urban Developments",
-    logo: "/images/testimonial/10.jpg",
+    logo: "/images/testimonial/SRMG.png",
   },
-  {
-    name: "Skyline Realty",
-    logo: "/images/testimonial/11.png",
-  },
+  // {
+  //   name: "Skyline Realty",
+  //   logo: "/images/testimonial/11.png",
+  // },
   {
     name: "Metro Construction",
-    logo: "/images/testimonial/12.jpg",
+    logo: "/images/testimonial/TRG.png",
   },
-  {
-    name: "Elite Builders",
-    logo: "/images/testimonial/13.jpg",
-  },
-  {
-    name: "Coastal Developments",
-    logo: "/images/testimonial/14.jpg",
-  },
+  // {
+  //   name: "Elite Builders",
+  //   logo: "/images/testimonial/13.jpg",
+  // },
+  // {
+  //   name: "Coastal Developments",
+  //   logo: "/images/testimonial/14.jpg",
+  // },
 ];
 
 export default function TestimonialsSection() {
