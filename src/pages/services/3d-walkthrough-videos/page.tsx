@@ -22,54 +22,13 @@ export default function WalkthroughVideosPage() {
   const portfolioProjects = [
     {
       id: 1,
-      title: "Luxury Residential Complex",
+      title: "Etereo 1, Goa",
+      category: "3D Walkthrough",
+      image: "/images/portfolio/1.png",
       description:
-        "Premium apartment complex with modern amenities and landscaping",
-      image: "/images/services/3d-walkthrough-videos/1.jpg",
-      duration: "3:45",
-      category: "Residential",
-    },
-    {
-      id: 2,
-      title: "Corporate Office Tower",
-      description:
-        "25-story commercial building with state-of-the-art facilities",
-      image: "/images/services/3d-walkthrough-videos/2.jpg",
-      duration: "4:20",
-      category: "Commercial",
-    },
-    {
-      id: 3,
-      title: "Shopping Mall Complex",
-      description: "Multi-level retail center with entertainment zones",
-      image: "/images/services/3d-walkthrough-videos/3.jpg",
-      duration: "5:15",
-      category: "Retail",
-    },
-    {
-      id: 4,
-      title: "Boutique Hotel Resort",
-      description:
-        "Luxury hospitality project with spa and conference facilities",
-      image: "/images/services/3d-walkthrough-videos/4.jpg",
-      duration: "6:30",
-      category: "Hospitality",
-    },
-    {
-      id: 5,
-      title: "Educational Campus",
-      description: "Modern university campus with research facilities",
-      image: "/images/services/3d-walkthrough-videos/5.jpg",
-      duration: "4:45",
-      category: "Educational",
-    },
-    {
-      id: 6,
-      title: "Healthcare Facility",
-      description: "State-of-the-art medical center with advanced equipment",
-      image: "/images/services/3d-walkthrough-videos/6.jpg",
-      duration: "3:55",
-      category: "Healthcare",
+        "Cinematic 3D walkthrough showcasing luxury residential units with panoramic city views.",
+      videoUrl: "https://www.youtube.com/embed/BiCCdx0fDik?autoplay=1&t",
+      duration: "2:45",
     },
   ];
 
@@ -90,21 +49,23 @@ export default function WalkthroughVideosPage() {
     setIsSubmitting(true);
 
     try {
-      const formDataToSend = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        formDataToSend.append(key, value);
-      });
-
-      const response = await fetch(
-        "https://readdy.ai/api/form/submit/3d-walkthrough-inquiry",
-        {
-          method: "POST",
-          body: formDataToSend,
-        }
+      const emailSubject = encodeURIComponent(
+        "3D Walkthrough Inquiry - " + formData.name
       );
 
-      if (response.ok) {
-        setSubmitStatus("success");
+      const emailBody = encodeURIComponent(
+        `New 3D Walkthrough Inquiry\n\n` +
+          `Name: ${formData.name}\n` +
+          `Email: ${formData.email}\n` +
+          `Phone: ${formData.phone || "Not provided"}\n` +
+          `Project Type: ${formData.project_type || "Not specified"}\n\n` +
+          `Project Details:\n${
+            formData.message || "No additional details provided"
+          }`
+      );
+      window.location.href = `mailto:info@alliancemedialabs.com?subject=${emailSubject}&body=${emailBody}`;
+      setSubmitStatus("success");
+      setTimeout(() => {
         setFormData({
           name: "",
           email: "",
@@ -112,9 +73,9 @@ export default function WalkthroughVideosPage() {
           project_type: "",
           message: "",
         });
-      } else {
-        setSubmitStatus("error");
-      }
+
+        setSubmitStatus("idle");
+      }, 3000);
     } catch (error) {
       setSubmitStatus("error");
     } finally {
@@ -355,7 +316,6 @@ export default function WalkthroughVideosPage() {
             <div className="bg-white rounded-2xl p-8 shadow-2xl">
               <form
                 id="walkthrough-inquiry-form"
-                data-readdy-form
                 onSubmit={handleSubmit}
                 className="space-y-6"
               >
@@ -451,27 +411,27 @@ export default function WalkthroughVideosPage() {
                   {isSubmitting ? (
                     <span className="flex items-center justify-center space-x-2">
                       <i className="ri-loader-4-line animate-spin"></i>
-                      <span>Sending...</span>
+                      <span>Opening Email Client...</span>
                     </span>
                   ) : (
                     <span className="flex items-center justify-center space-x-2">
-                      <span>Get Quote</span>
-                      <i className="ri-send-plane-line"></i>
+                      <span>Send Inquiry via Email</span>
+                      <i className="ri-mail-send-line"></i>
                     </span>
                   )}
                 </Button>
 
                 {submitStatus === "success" && (
                   <div className="text-green-600 text-center font-medium">
-                    Thank you! We'll get back to you with a custom quote within
-                    24 hours.
+                    Email client opened! Please send the email to complete your
+                    inquiry.
                   </div>
                 )}
 
                 {submitStatus === "error" && (
                   <div className="text-red-600 text-center font-medium">
-                    Sorry, there was an error sending your message. Please try
-                    again.
+                    Sorry, there was an error. Please email us directly at
+                    info@alliancemedialabs.com
                   </div>
                 )}
               </form>
@@ -519,20 +479,30 @@ export default function WalkthroughVideosPage() {
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-6">
           <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="relative">
-              <img
+              {/* <img
                 src={selectedProject.image}
                 alt={selectedProject.title}
                 className="w-full h-64 md:h-96 object-cover"
-              />
+              /> */}
+              <div className="aspect-video">
+                <iframe
+                  src={selectedProject.videoUrl}
+                  title={selectedProject.title}
+                  className="w-full h-full rounded-t-2xl"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
               <button
                 onClick={() => setSelectedProject(null)}
                 className="absolute top-4 right-4 w-10 h-10 bg-black/80 text-white rounded-full flex items-center justify-center hover:bg-black transition-colors"
               >
                 <i className="ri-close-line text-xl"></i>
               </button>
-              <div className="absolute bottom-4 left-4 bg-yellow-400 text-black px-4 py-2 rounded-full font-semibold">
+              {/* <div className="absolute bottom-4 left-4 bg-yellow-400 text-black px-4 py-2 rounded-full font-semibold">
                 {selectedProject.category}
-              </div>
+              </div> */}
             </div>
             <div className="p-8">
               <h3 className="text-3xl font-bold text-black mb-4">
@@ -553,7 +523,7 @@ export default function WalkthroughVideosPage() {
                   <span className="text-black">HD Quality</span>
                 </div>
               </div>
-              <div className="flex space-x-4">
+              {/* <div className="flex space-x-4">
                 <Button variant="primary">
                   <span className="flex items-center space-x-2">
                     <i className="ri-play-fill"></i>
@@ -566,7 +536,7 @@ export default function WalkthroughVideosPage() {
                     <span>Download</span>
                   </span>
                 </Button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

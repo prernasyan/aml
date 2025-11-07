@@ -12,17 +12,34 @@ export default function AboutSection() {
               <div className="w-20 h-1 bg-yellow-400"></div>
             </div>
 
-            <p className="text-lg text-gray-700 leading-relaxed">
-              We are a creative technology company that bridges the gap between
-              imagination and reality. Specializing in real estate content
-              creation and virtual visualization, we empower developers with
-              cutting-edge visuals and immersive digital tools.
+            <p className="text-base text-gray-700 leading-relaxed">
+              Alliance Media Labs stands at the forefront of real estate content
+              creation in India, partnering with some of the nation’s most
+              prominent developers, builders, and property marketing platforms.
+              Our diverse portfolio showcases premium creative and
+              technology-driven solutions all crafted to elevate real estate
+              storytelling.
             </p>
 
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Our team combines artistic vision with technological innovation to
-              create experiences that don't just showcase properties—they tell
-              stories, evoke emotions, and drive decisions.
+            <p className="text-base text-gray-700 leading-relaxed">
+              We offer end-to-end real estate marketing solutions, including
+              drone shoots, 3D walkthroughs, interactive virtual tours, project
+              films, architectural scale models, website development, digital
+              marketing and brand campaigns.
+            </p>
+
+            <p className="text-base text-gray-700 leading-relaxed">
+              Pan-India Presence: With a strong Pan-India presence and a
+              professional network of photographers, videographers, and drone
+              pilots, we ensure consistent, high-quality output across every
+              city.
+            </p>
+
+            <p className="text-base text-gray-700 leading-relaxed">
+              As one of India’s most trusted real estate creative partners,
+              Alliance Media Labs combines creativity, technology, and
+              storytelling to elevate real estate brands and drive impactful
+              project marketing.
             </p>
 
             <div className="grid grid-cols-2 gap-8 pt-8">

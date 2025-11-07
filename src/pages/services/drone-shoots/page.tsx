@@ -2,8 +2,95 @@ import Header from "../../../components/feature/Header";
 import Footer from "../../../components/feature/Footer";
 import { Link } from "react-router-dom";
 import PortfolioSection from "../../home/components/PortfolioSection";
+import { useState } from "react";
+import Button from "../../../components/base/Button";
 
 export default function DroneShootsPage() {
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    project_type: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const portfolioProjects = [
+    {
+      id: 1,
+      title: "Province D Olympia, Noida",
+      category: "Location AV",
+      image: "/images/portfolio/3.png",
+      description:
+        "Professional location showcase highlighting the prime Noida location and premium real estate development with excellent connectivity and modern infrastructure.",
+      videoUrl:
+        "https://www.youtube.com/embed/VPTirPc5a1I?si=y4M05nZkVgJPmB9U&autoplay=1",
+      duration: "4:41",
+    },
+    {
+      id: 2,
+      title: "Altura DXP 92, Gurugram",
+      category: "Location AV",
+      image: "/images/portfolio/26.png",
+      description:
+        "Infographical location AV showcasing Altura DXP 92 development in Gurugram with comprehensive visual presentation and detailed project information.",
+      videoUrl:
+        "https://www.youtube.com/embed/z6RclcDFWAA?si=y4M05nZkVgJPmB9U&autoplay=1",
+      duration: "5:14",
+    },
+    {
+      id: 3,
+      title: "Shree Radha Gopal Residency, Kosi",
+      category: "Location AV",
+      image: "/images/portfolio/27.png",
+      description:
+        "Highlighting spiritual location of Kosi along with project highlights showcasing the serene environment and premium residential development features.",
+      videoUrl:
+        "https://www.youtube.com/embed/nl1xegGywlc?si=y4M05nZkVgJPmB9U&autoplay=1",
+      duration: "4:54",
+    },
+  ];
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const emailSubject = encodeURIComponent(
+        "3D Walkthrough Inquiry - " + formData.name
+      );
+
+      const emailBody = encodeURIComponent(
+        `New 3D Walkthrough Inquiry\n\n` +
+          `Name: ${formData.name}\n` +
+          `Email: ${formData.email}\n` +
+          `Phone: ${formData.phone || "Not provided"}\n` +
+          `Project Type: ${formData.project_type || "Not specified"}\n\n` +
+          `Project Details:\n${
+            formData.message || "No additional details provided"
+          }`
+      );
+      window.location.href = `mailto:info@alliancemedialabs.com?subject=${emailSubject}&body=${emailBody}`;
+      setSubmitStatus("success");
+      setTimeout(() => {
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          project_type: "",
+          message: "",
+        });
+
+        setSubmitStatus("idle");
+      }, 3000);
+    } catch (error) {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <div className="min-h-screen">
       <Header />
@@ -156,8 +243,42 @@ export default function DroneShootsPage() {
                 breathtaking perspectives
               </p>
             </div>
-
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {portfolioProjects.map((project) => (
+                <div
+                  key={project.id}
+                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                  onClick={() => setSelectedProject(project)}
+                >
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center">
+                        <i className="ri-play-fill text-2xl text-black"></i>
+                      </div>
+                    </div>
+                    <div className="absolute top-4 right-4 bg-black/80 text-white px-3 py-1 rounded-full text-sm">
+                      {project.duration}
+                    </div>
+                    <div className="absolute bottom-4 left-4 bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-semibold">
+                      {project.category}
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-black mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-black/70">{project.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
                   src="https://readdy.ai/api/search-image?query=Aerial%20view%20of%20luxury%20beachfront%20resort%20development%2C%20stunning%20coastline%20and%20ocean%20views%2C%20professional%20drone%20photography%2C%20tropical%20paradise%20setting&width=400&height=300&seq=drone-portfolio-1&orientation=landscape"
@@ -283,7 +404,7 @@ export default function DroneShootsPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="text-center mt-12">
               <Link
@@ -436,10 +557,10 @@ export default function DroneShootsPage() {
               <div className="bg-white rounded-2xl p-8 shadow-2xl">
                 <form
                   id="drone-shoots-inquiry-form"
-                  data-readdy-form
-                  action="https://readdy.ai/api/form/d3mirlst07omtp5lr4ig"
-                  method="POST"
+                  // action="https://readdy.ai/api/form/d3mirlst07omtp5lr4ig"
+                  // method="POST"
                   className="space-y-6"
+                  onSubmit={handleSubmit}
                 >
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
@@ -530,16 +651,33 @@ export default function DroneShootsPage() {
                       0/500 characters
                     </div>
                   </div>
+                  <Button variant="primary" size="lg" className="w-full">
+                    {isSubmitting ? (
+                      <span className="flex items-center justify-center space-x-2">
+                        <i className="ri-loader-4-line animate-spin"></i>
+                        <span>Opening Email Client...</span>
+                      </span>
+                    ) : (
+                      <span className="flex items-center justify-center space-x-2">
+                        <span>Send Inquiry via Email</span>
+                        <i className="ri-mail-send-line"></i>
+                      </span>
+                    )}
+                  </Button>
 
-                  <button
-                    type="submit"
-                    className="w-full bg-black text-white px-8 py-4 rounded-full font-semibold hover:bg-gray-800 transition-colors whitespace-nowrap cursor-pointer"
-                  >
-                    <span className="flex items-center justify-center space-x-2">
-                      <span>Get Quote</span>
-                      <i className="ri-send-plane-line"></i>
-                    </span>
-                  </button>
+                  {submitStatus === "success" && (
+                    <div className="text-green-600 text-center font-medium">
+                      Email client opened! Please send the email to complete
+                      your inquiry.
+                    </div>
+                  )}
+
+                  {submitStatus === "error" && (
+                    <div className="text-red-600 text-center font-medium">
+                      Sorry, there was an error. Please email us directly at
+                      info@alliancemedialabs.com
+                    </div>
+                  )}
                 </form>
               </div>
             </div>
@@ -579,6 +717,74 @@ export default function DroneShootsPage() {
             </div>
           </div>
         </section>
+
+        {/* Modal for Portfolio Details */}
+        {selectedProject && (
+          <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-6">
+            <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="relative">
+                {/* <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="w-full h-64 md:h-96 object-cover"
+              /> */}
+                <div className="aspect-video">
+                  <iframe
+                    src={selectedProject.videoUrl}
+                    title={selectedProject.title}
+                    className="w-full h-full rounded-t-2xl"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="absolute top-4 right-4 w-10 h-10 bg-black/80 text-white rounded-full flex items-center justify-center hover:bg-black transition-colors"
+                >
+                  <i className="ri-close-line text-xl"></i>
+                </button>
+                {/* <div className="absolute bottom-4 left-4 bg-yellow-400 text-black px-4 py-2 rounded-full font-semibold">
+                {selectedProject.category}
+              </div> */}
+              </div>
+              <div className="p-8">
+                <h3 className="text-3xl font-bold text-black mb-4">
+                  {selectedProject.title}
+                </h3>
+                <p className="text-black/70 text-lg mb-6">
+                  {selectedProject.description}
+                </p>
+                <div className="flex items-center space-x-6 mb-6">
+                  <div className="flex items-center space-x-2">
+                    <i className="ri-time-line text-yellow-400"></i>
+                    <span className="text-black">
+                      Duration: {selectedProject.duration}
+                    </span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <i className="ri-play-circle-line text-yellow-400"></i>
+                    <span className="text-black">HD Quality</span>
+                  </div>
+                </div>
+                {/* <div className="flex space-x-4">
+                <Button variant="primary">
+                  <span className="flex items-center space-x-2">
+                    <i className="ri-play-fill"></i>
+                    <span>Watch Video</span>
+                  </span>
+                </Button>
+                <Button variant="outline">
+                  <span className="flex items-center space-x-2">
+                    <i className="ri-download-line"></i>
+                    <span>Download</span>
+                  </span>
+                </Button>
+              </div> */}
+              </div>
+            </div>
+          </div>
+        )}
       </main>
       <Footer />
     </div>

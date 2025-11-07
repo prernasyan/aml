@@ -2,8 +2,60 @@ import Header from "../../../components/feature/Header";
 import Footer from "../../../components/feature/Footer";
 import { Link } from "react-router-dom";
 import PortfolioSection from "../../home/components/PortfolioSection";
+import Button from "../../../components/base/Button";
+import { useState } from "react";
 
 export default function GraphicsBrandingPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    project_type: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const emailSubject = encodeURIComponent(
+        "3D Walkthrough Inquiry - " + formData.name
+      );
+
+      const emailBody = encodeURIComponent(
+        `New 3D Walkthrough Inquiry\n\n` +
+          `Name: ${formData.name}\n` +
+          `Email: ${formData.email}\n` +
+          `Phone: ${formData.phone || "Not provided"}\n` +
+          `Project Type: ${formData.project_type || "Not specified"}\n\n` +
+          `Project Details:\n${
+            formData.message || "No additional details provided"
+          }`
+      );
+      window.location.href = `mailto:info@alliancemedialabs.com?subject=${emailSubject}&body=${emailBody}`;
+      setSubmitStatus("success");
+      setTimeout(() => {
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          project_type: "",
+          message: "",
+        });
+
+        setSubmitStatus("idle");
+      }, 3000);
+    } catch (error) {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -519,10 +571,10 @@ export default function GraphicsBrandingPage() {
               <div className="bg-white rounded-2xl p-8 shadow-2xl">
                 <form
                   id="graphics-branding-inquiry-form"
-                  data-readdy-form
-                  action="https://readdy.ai/api/form/d3mirlst07omtp5lr4j0"
-                  method="POST"
+                  // action="https://readdy.ai/api/form/d3mirlst07omtp5lr4j0"
+                  // method="POST"
                   className="space-y-6"
+                  onClick={handleSubmit}
                 >
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
@@ -612,15 +664,33 @@ export default function GraphicsBrandingPage() {
                     </div>
                   </div>
 
-                  <button
-                    type="submit"
-                    className="w-full bg-black text-white px-8 py-4 rounded-full font-semibold hover:bg-gray-800 transition-colors whitespace-nowrap cursor-pointer"
-                  >
-                    <span className="flex items-center justify-center space-x-2">
-                      <span>Get Quote</span>
-                      <i className="ri-send-plane-line"></i>
-                    </span>
-                  </button>
+                  <Button variant="primary" size="lg" className="w-full">
+                    {isSubmitting ? (
+                      <span className="flex items-center justify-center space-x-2">
+                        <i className="ri-loader-4-line animate-spin"></i>
+                        <span>Opening Email Client...</span>
+                      </span>
+                    ) : (
+                      <span className="flex items-center justify-center space-x-2">
+                        <span>Send Inquiry via Email</span>
+                        <i className="ri-mail-send-line"></i>
+                      </span>
+                    )}
+                  </Button>
+
+                  {submitStatus === "success" && (
+                    <div className="text-green-600 text-center font-medium">
+                      Email client opened! Please send the email to complete
+                      your inquiry.
+                    </div>
+                  )}
+
+                  {submitStatus === "error" && (
+                    <div className="text-red-600 text-center font-medium">
+                      Sorry, there was an error. Please email us directly at
+                      info@alliancemedialabs.com
+                    </div>
+                  )}
                 </form>
               </div>
             </div>

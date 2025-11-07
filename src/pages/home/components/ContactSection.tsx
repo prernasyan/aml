@@ -1,57 +1,73 @@
-
-import { useState } from 'react';
-import Button from '../../../components/base/Button';
+import { useState } from "react";
+import Button from "../../../components/base/Button";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    project_type: '',
-    budget: '',
-    message: ''
+    name: "",
+    email: "",
+    company: "",
+    project_type: "",
+    budget: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
-      const formDataToSend = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        formDataToSend.append(key, value);
-      });
+      // Create email body content
+      const emailSubject = encodeURIComponent(
+        "Contact Form Inquiry - " + formData.name
+      );
+      const emailBody = encodeURIComponent(
+        `New Contact Form Submission\n\n` +
+          `Name: ${formData.name}\n` +
+          `Email: ${formData.email}\n` +
+          `Company: ${formData.company || "Not provided"}\n` +
+          `Project Type: ${formData.project_type || "Not specified"}\n` +
+          `Budget Range: ${formData.budget || "Not specified"}\n\n` +
+          `Project Details:\n${
+            formData.message || "No additional details provided"
+          }`
+      );
 
-      const response = await fetch('https://readdy.ai/api/form/submit/contact', {
-        method: 'POST',
-        body: formDataToSend
-      });
+      // Open default email client
+      window.location.href = `mailto:info@alliancemedialabs.com?subject=${emailSubject}&body=${emailBody}`;
 
-      if (response.ok) {
-        setSubmitStatus('success');
+      // Show success message
+      setSubmitStatus("success");
+
+      // Reset form after a delay
+      setTimeout(() => {
         setFormData({
-          name: '',
-          email: '',
-          company: '',
-          project_type: '',
-          budget: '',
-          message: ''
+          name: "",
+          email: "",
+          company: "",
+          project_type: "",
+          budget: "",
+          message: "",
         });
-      } else {
-        setSubmitStatus('error');
-      }
+        setSubmitStatus("idle");
+      }, 3000);
     } catch (error) {
-      setSubmitStatus('error');
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -69,12 +85,13 @@ export default function ContactSection() {
               </h2>
               <div className="w-20 h-1 bg-black"></div>
             </div>
-            
+
             <p className="text-lg text-black/80 leading-relaxed">
-              Ready to transform your real estate marketing with cutting-edge visualization? 
-              Let's discuss your project and create something extraordinary together.
+              Ready to transform your real estate marketing with cutting-edge
+              visualization? Let's discuss your project and create something
+              extraordinary together.
             </p>
-            
+
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center">
@@ -86,7 +103,7 @@ export default function ContactSection() {
                   <p className="text-black/80">+91 9999916744</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center">
                   <i className="ri-mail-line text-xl text-yellow-400"></i>
@@ -96,25 +113,33 @@ export default function ContactSection() {
                   <p className="text-black/80">info@alliancemedialabs.com</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center">
                   <i className="ri-map-pin-line text-xl text-yellow-400"></i>
                 </div>
                 <div>
                   <p className="font-semibold text-black">Location</p>
-                  <p className="text-black/80">D-244, Sector 75, Chandigarh, Mohali</p>
+                  <p className="text-black/80">
+                    D-244, Sector 75, Chandigarh, Mohali
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-          
+
           {/* Contact Form */}
           <div className="bg-white rounded-2xl p-8 shadow-2xl">
-            <form id="contact-form" data-readdy-form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              id="contact-form"
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Name *</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Name *
+                  </label>
                   <input
                     type="text"
                     name="name"
@@ -125,9 +150,11 @@ export default function ContactSection() {
                     placeholder="Your full name"
                   />
                 </div>
-                
+
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Email *
+                  </label>
                   <input
                     type="email"
                     name="email"
@@ -139,9 +166,11 @@ export default function ContactSection() {
                   />
                 </div>
               </div>
-              
+
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Company</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Company
+                </label>
                 <input
                   type="text"
                   name="company"
@@ -151,10 +180,12 @@ export default function ContactSection() {
                   placeholder="Your company name"
                 />
               </div>
-              
+
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Project Type</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Project Type
+                  </label>
                   <select
                     name="project_type"
                     value={formData.project_type}
@@ -162,20 +193,36 @@ export default function ContactSection() {
                     className="w-full px-4 py-3 pr-8 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-sm"
                   >
                     <option value="">Select project type</option>
-                    <option value="3d-walkthrough">3D Walkthrough Videos</option>
-                    <option value="vr-tour">Virtual Reality Tours (360°)</option>
-                    <option value="construction-updates">Construction Update Videos</option>
-                    <option value="drone-cinematography">Location AVs & Drone Shoots</option>
-                    <option value="architectural-models">Architectural Scale Models</option>
+                    <option value="3d-walkthrough">
+                      3D Walkthrough Videos
+                    </option>
+                    <option value="vr-tour">
+                      Virtual Reality Tours (360°)
+                    </option>
+                    <option value="construction-updates">
+                      Construction Update Videos
+                    </option>
+                    <option value="drone-cinematography">
+                      Location AVs & Drone Shoots
+                    </option>
+                    <option value="architectural-models">
+                      Architectural Scale Models
+                    </option>
                     <option value="3d-renders">3D Renders & Isometrics</option>
                     <option value="interactive-3d">Interactive 3D Tools</option>
-                    <option value="digital-marketing">Real Estate Digital Marketing</option>
-                    <option value="graphics-branding">Graphics & Branding Content</option>
+                    <option value="digital-marketing">
+                      Real Estate Digital Marketing
+                    </option>
+                    <option value="graphics-branding">
+                      Graphics & Branding Content
+                    </option>
                   </select>
                 </div>
-                
+
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Budget Range</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Budget Range
+                  </label>
                   <select
                     name="budget"
                     value={formData.budget}
@@ -185,14 +232,18 @@ export default function ContactSection() {
                     <option value="">Select budget range</option>
                     <option value="50k-1lakh">INR 50,000 - 1,00,000</option>
                     <option value="1lakh-5lakh">INR 1,00,000 - 5,00,000</option>
-                    <option value="5lakh-10lakh">INR 5,00,000 - 10,00,000</option>
+                    <option value="5lakh-10lakh">
+                      INR 5,00,000 - 10,00,000
+                    </option>
                     <option value="over-10lakh">Over INR 10,00,000</option>
                   </select>
                 </div>
               </div>
-              
+
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Project Details</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Project Details
+                </label>
                 <textarea
                   name="message"
                   value={formData.message}
@@ -206,34 +257,32 @@ export default function ContactSection() {
                   {formData.message.length}/500 characters
                 </div>
               </div>
-              
-              <Button 
-                variant="primary" 
-                size="lg" 
-                className="w-full"
-              >
+
+              <Button variant="primary" size="lg" className="w-full">
                 {isSubmitting ? (
                   <span className="flex items-center justify-center space-x-2">
                     <i className="ri-loader-4-line animate-spin"></i>
-                    <span>Sending...</span>
+                    <span>Opening Email Client...</span>
                   </span>
                 ) : (
                   <span className="flex items-center justify-center space-x-2">
-                    <span>Send Message</span>
-                    <i className="ri-send-plane-line"></i>
+                    <span>Send Message via Email</span>
+                    <i className="ri-mail-send-line"></i>
                   </span>
                 )}
               </Button>
-              
-              {submitStatus === 'success' && (
+
+              {submitStatus === "success" && (
                 <div className="text-green-600 text-center font-medium">
-                  Thank you! Your message has been sent successfully.
+                  Email client opened! Please send the email to complete your
+                  inquiry.
                 </div>
               )}
-              
-              {submitStatus === 'error' && (
+
+              {submitStatus === "error" && (
                 <div className="text-red-600 text-center font-medium">
-                  Sorry, there was an error sending your message. Please try again.
+                  Sorry, there was an error. Please email us directly at
+                  info@alliancemedialabs.com
                 </div>
               )}
             </form>

@@ -27,49 +27,49 @@ const testimonials = [
 
 const clientLogos = [
   {
+    name: "ATS",
+    logo: "/images/testimonial/ATS.png",
+  },
+  {
     name: "Hero Homes",
+    logo: "/images/testimonial/Hero Homes.png",
+  },
+  {
+    name: "Smartworld",
+    logo: "/images/testimonial/Smartworld.png",
+  },
+  {
+    name: "Eka",
     logo: "/images/testimonial/Eka.png",
   },
   {
-    name: "Client Logo 2",
+    name: "Etereo",
     logo: "/images/testimonial/Etereo.png",
   },
   {
-    name: "Client Logo 3",
+    name: "Experion",
     logo: "/images/testimonial/Experion.png",
   },
   {
-    name: "Pyramid Infratech",
+    name: "Fute",
     logo: "/images/testimonial/Fute.png",
   },
   {
-    name: "Client Logo 5",
+    name: "Gulnaar",
     logo: "/images/testimonial/Gulnaar.png",
   },
   {
-    name: "Pinnacle Properties",
+    name: "OPS",
     logo: "/images/testimonial/OPS.png",
   },
   {
-    name: "Urban Developments",
+    name: "SRMG",
     logo: "/images/testimonial/SRMG.png",
   },
-  // {
-  //   name: "Skyline Realty",
-  //   logo: "/images/testimonial/11.png",
-  // },
   {
-    name: "Metro Construction",
+    name: "TRG",
     logo: "/images/testimonial/TRG.png",
   },
-  // {
-  //   name: "Elite Builders",
-  //   logo: "/images/testimonial/13.jpg",
-  // },
-  // {
-  //   name: "Coastal Developments",
-  //   logo: "/images/testimonial/14.jpg",
-  // },
 ];
 
 export default function TestimonialsSection() {

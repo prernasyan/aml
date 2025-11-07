@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import PortfolioSection from "../../home/components/PortfolioSection";
 
 export default function VirtualRealityToursPage() {
+  const [selectedProject, setSelectedProject] = useState<any>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,6 +17,49 @@ export default function VirtualRealityToursPage() {
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
   >("idle");
+
+  const portfolioProjects = [
+    {
+      id: 1,
+      title: "Shree Radha Gopal Residency, Kosi",
+      category: "VR Experience",
+      image: "/images/portfolio/2.png",
+      description:
+        "Interactive VR tour of a residential plotted development with modern amenities and green spaces.",
+      videoUrl: "https://amlabs.cloud/SRMG_V06/",
+      isExternal: true,
+    },
+    {
+      id: 2,
+      title: "House of Hiranandani, Mumbai",
+      category: "VR Experience",
+      image: "/images/portfolio/23.png",
+      description:
+        "Immersive VR tour of premium shopping mall featuring interactive retail spaces and modern commercial architecture.",
+      videoUrl: "https://amlabs.cloud/HOH-V2/",
+      isExternal: true,
+    },
+    {
+      id: 3,
+      title: "Province D Olympia, Noida",
+      category: "VR Experience",
+      image: "/images/portfolio/24.png",
+      description: "Residential plotted development",
+      videoUrl: "https://amlabs.cloud/ATS_PDO/",
+      isExternal: true,
+    },
+    {
+      id: 4,
+      title: "Resort & Spa VR Journey",
+      category: "VR Experience",
+      image: "/images/portfolio/25.jpg",
+      description:
+        "Comprehensive VR experience showcasing luxury resort amenities, spa facilities, and premium accommodation options.",
+      videoUrl:
+        "https://www.youtube.com/embed/BiCKdx0fDik?si=y4M05nZkVgJPmB9U&autoplay=1",
+      isExternal: false,
+    },
+  ];
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -34,21 +78,23 @@ export default function VirtualRealityToursPage() {
     setIsSubmitting(true);
 
     try {
-      const formDataToSend = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        formDataToSend.append(key, value);
-      });
-
-      const response = await fetch(
-        "https://readdy.ai/api/form/d3mirlst07omtp5lr4g0",
-        {
-          method: "POST",
-          body: formDataToSend,
-        }
+      const emailSubject = encodeURIComponent(
+        "3D Walkthrough Inquiry - " + formData.name
       );
 
-      if (response.ok) {
-        setSubmitStatus("success");
+      const emailBody = encodeURIComponent(
+        `New Virtual Reality Tours Inquiry\n\n` +
+          `Name: ${formData.name}\n` +
+          `Email: ${formData.email}\n` +
+          `Phone: ${formData.phone || "Not provided"}\n` +
+          `Project Type: ${formData.project_type || "Not specified"}\n\n` +
+          `Project Details:\n${
+            formData.message || "No additional details provided"
+          }`
+      );
+      window.location.href = `mailto:info@alliancemedialabs.com?subject=${emailSubject}&body=${emailBody}`;
+      setSubmitStatus("success");
+      setTimeout(() => {
         setFormData({
           name: "",
           email: "",
@@ -56,9 +102,9 @@ export default function VirtualRealityToursPage() {
           project_type: "",
           message: "",
         });
-      } else {
-        setSubmitStatus("error");
-      }
+
+        setSubmitStatus("idle");
+      }, 3000);
     } catch (error) {
       setSubmitStatus("error");
     } finally {
@@ -315,8 +361,38 @@ export default function VirtualRealityToursPage() {
                 into their future properties
               </p>
             </div>
-
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {portfolioProjects.map((project) => (
+                <div
+                  key={project.id}
+                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                  onClick={() => window.open(project.videoUrl, "_blank")}
+                >
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center">
+                        <i className="ri-play-fill text-2xl text-black"></i>
+                      </div>
+                    </div>
+                    <div className="absolute bottom-4 left-4 bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-semibold">
+                      {project.category}
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-black mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-black/70">{project.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <img
                   src="/images/services/virtual-reality-tours/4.jpg"
@@ -462,7 +538,7 @@ export default function VirtualRealityToursPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="text-center mt-12">
               <Link
@@ -493,7 +569,6 @@ export default function VirtualRealityToursPage() {
               <div className="bg-white rounded-2xl p-8 shadow-2xl">
                 <form
                   id="vr-inquiry-form"
-                  data-readdy-form
                   onSubmit={handleSubmit}
                   className="space-y-6"
                 >
@@ -593,27 +668,27 @@ export default function VirtualRealityToursPage() {
                     {isSubmitting ? (
                       <span className="flex items-center justify-center space-x-2">
                         <i className="ri-loader-4-line animate-spin"></i>
-                        <span>Sending...</span>
+                        <span>Opening Email Client...</span>
                       </span>
                     ) : (
                       <span className="flex items-center justify-center space-x-2">
-                        <span>Get Quote</span>
-                        <i className="ri-send-plane-line"></i>
+                        <span>Send Inquiry via Email</span>
+                        <i className="ri-mail-send-line"></i>
                       </span>
                     )}
                   </button>
 
                   {submitStatus === "success" && (
                     <div className="text-green-600 text-center font-medium">
-                      Thank you! We'll get back to you with a custom quote
-                      within 24 hours.
+                      Email client opened! Please send the email to complete
+                      your inquiry.
                     </div>
                   )}
 
                   {submitStatus === "error" && (
                     <div className="text-red-600 text-center font-medium">
-                      Sorry, there was an error sending your message. Please try
-                      again.
+                      Sorry, there was an error. Please email us directly at
+                      info@alliancemedialabs.com
                     </div>
                   )}
                 </form>
@@ -655,6 +730,74 @@ export default function VirtualRealityToursPage() {
             </div>
           </div>
         </section>
+
+        {/* Modal for Portfolio Details */}
+        {selectedProject && (
+          <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-6">
+            <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="relative">
+                {/* <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="w-full h-64 md:h-96 object-cover"
+              /> */}
+                <div className="aspect-video">
+                  <iframe
+                    src={selectedProject.videoUrl}
+                    title={selectedProject.title}
+                    className="w-full h-full rounded-t-2xl"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="absolute top-4 right-4 w-10 h-10 bg-black/80 text-white rounded-full flex items-center justify-center hover:bg-black transition-colors"
+                >
+                  <i className="ri-close-line text-xl"></i>
+                </button>
+                {/* <div className="absolute bottom-4 left-4 bg-yellow-400 text-black px-4 py-2 rounded-full font-semibold">
+                {selectedProject.category}
+              </div> */}
+              </div>
+              <div className="p-8">
+                <h3 className="text-3xl font-bold text-black mb-4">
+                  {selectedProject.title}
+                </h3>
+                <p className="text-black/70 text-lg mb-6">
+                  {selectedProject.description}
+                </p>
+                <div className="flex items-center space-x-6 mb-6">
+                  <div className="flex items-center space-x-2">
+                    <i className="ri-time-line text-yellow-400"></i>
+                    <span className="text-black">
+                      Duration: {selectedProject.duration}
+                    </span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <i className="ri-play-circle-line text-yellow-400"></i>
+                    <span className="text-black">HD Quality</span>
+                  </div>
+                </div>
+                {/* <div className="flex space-x-4">
+                <Button variant="primary">
+                  <span className="flex items-center space-x-2">
+                    <i className="ri-play-fill"></i>
+                    <span>Watch Video</span>
+                  </span>
+                </Button>
+                <Button variant="outline">
+                  <span className="flex items-center space-x-2">
+                    <i className="ri-download-line"></i>
+                    <span>Download</span>
+                  </span>
+                </Button>
+              </div> */}
+              </div>
+            </div>
+          </div>
+        )}
       </main>
       <Footer />
     </div>
