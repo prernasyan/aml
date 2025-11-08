@@ -36,39 +36,55 @@ export default function Interactive3DToolsPage() {
     setIsSubmitting(true);
 
     try {
-      const emailSubject = encodeURIComponent(
-        "3D Walkthrough Inquiry - " + formData.name
-      );
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "a557c293-5de3-4d54-8636-50b7d3c406c7",
+          subject: `Interactive 3D tools Inquiry - ${formData.name}`,
+          from_name: formData.name,
+          from_email: formData.email,
+          message: `
+New Interactive 3D tools Inquiry
 
-      const emailBody = encodeURIComponent(
-        `New 3D Walkthrough Inquiry\n\n` +
-          `Name: ${formData.name}\n` +
-          `Email: ${formData.email}\n` +
-          `Phone: ${formData.phone || "Not provided"}\n` +
-          `Project Type: ${formData.project_type || "Not specified"}\n\n` +
-          `Project Details:\n${
-            formData.message || "No additional details provided"
-          }`
-      );
-      window.location.href = `mailto:info@alliancemedialabs.com?subject=${emailSubject}&body=${emailBody}`;
-      setSubmitStatus("success");
-      setTimeout(() => {
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          project_type: "",
-          message: "",
-        });
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || "Not provided"}
+Project Type: ${formData.project_type || "Not specified"}
 
-        setSubmitStatus("idle");
-      }, 3000);
+Project Details:
+${formData.message || "No additional details provided"}
+        `.trim(),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus("success");
+        setTimeout(() => {
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            project_type: "",
+            message: "",
+          });
+          setSubmitStatus("idle");
+        }, 3000);
+      } else {
+        throw new Error("Form submission failed");
+      }
     } catch (error) {
+      console.error("Email sending failed:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -663,7 +679,7 @@ export default function Interactive3DToolsPage() {
                     {isSubmitting ? (
                       <span className="flex items-center justify-center space-x-2">
                         <i className="ri-loader-4-line animate-spin"></i>
-                        <span>Opening Email Client...</span>
+                        <span>Sending.....</span>
                       </span>
                     ) : (
                       <span className="flex items-center justify-center space-x-2">
@@ -675,8 +691,8 @@ export default function Interactive3DToolsPage() {
 
                   {submitStatus === "success" && (
                     <div className="text-green-600 text-center font-medium">
-                      Email client opened! Please send the email to complete
-                      your inquiry.
+                      Thank you! We'll get back to you with a custom quote
+                      within 24 hours.
                     </div>
                   )}
 

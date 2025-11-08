@@ -32,41 +32,51 @@ export default function ContactSection() {
     setIsSubmitting(true);
 
     try {
-      // Create email body content
-      const emailSubject = encodeURIComponent(
-        "Contact Form Inquiry - " + formData.name
-      );
-      const emailBody = encodeURIComponent(
-        `New Contact Form Submission\n\n` +
-          `Name: ${formData.name}\n` +
-          `Email: ${formData.email}\n` +
-          `Company: ${formData.company || "Not provided"}\n` +
-          `Project Type: ${formData.project_type || "Not specified"}\n` +
-          `Budget Range: ${formData.budget || "Not specified"}\n\n` +
-          `Project Details:\n${
-            formData.message || "No additional details provided"
-          }`
-      );
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "a557c293-5de3-4d54-8636-50b7d3c406c7",
+          subject: `"Contact Form Inquiry - ${formData.name}`,
+          from_name: formData.name,
+          from_email: formData.email,
+          message: `
+New Contact Form Submission
 
-      // Open default email client
-      window.location.href = `mailto:info@alliancemedialabs.com?subject=${emailSubject}&body=${emailBody}`;
+Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company || "Not provided"}
+Project Type: ${formData.project_type || "Not specified"}
+Budget Range: ${formData.budget || "Not specified"}
 
-      // Show success message
-      setSubmitStatus("success");
+Project Details:
+${formData.message || "No additional details provided"}
+        `.trim(),
+        }),
+      });
 
-      // Reset form after a delay
-      setTimeout(() => {
-        setFormData({
-          name: "",
-          email: "",
-          company: "",
-          project_type: "",
-          budget: "",
-          message: "",
-        });
-        setSubmitStatus("idle");
-      }, 3000);
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus("success");
+        setTimeout(() => {
+          setFormData({
+            name: "",
+            email: "",
+            company: "",
+            project_type: "",
+            budget: "",
+            message: "",
+          });
+          setSubmitStatus("idle");
+        }, 6000);
+      } else {
+        throw new Error("Form submission failed");
+      }
     } catch (error) {
+      console.error("Email sending failed:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -262,7 +272,7 @@ export default function ContactSection() {
                 {isSubmitting ? (
                   <span className="flex items-center justify-center space-x-2">
                     <i className="ri-loader-4-line animate-spin"></i>
-                    <span>Opening Email Client...</span>
+                    <span>Sending.....</span>
                   </span>
                 ) : (
                   <span className="flex items-center justify-center space-x-2">
@@ -274,8 +284,8 @@ export default function ContactSection() {
 
               {submitStatus === "success" && (
                 <div className="text-green-600 text-center font-medium">
-                  Email client opened! Please send the email to complete your
-                  inquiry.
+                  Thank you! We'll get back to you with a custom quote within 24
+                  hours.
                 </div>
               )}
 

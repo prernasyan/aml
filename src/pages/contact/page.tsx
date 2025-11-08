@@ -95,35 +95,55 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      const formDataToSend = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        formDataToSend.append(key, value);
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "a557c293-5de3-4d54-8636-50b7d3c406c7",
+          subject: `3D Renders Isometrics Inquiry - ${formData.name}`,
+          from_name: formData.name,
+          from_email: formData.email,
+          message: `
+New 3D Renders Isometrics Inquiry
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || "Not provided"}
+Service Interested In: ${formData.service || "Not specified"}
+Company: ${formData.company || "Not specified"}
+Budget Range: ${formData.budget || "Not specified"}
+Timeline: ${formData.timeline || "Not specified"}
+
+Project Details:
+${formData.message || "No additional details provided"}
+        `.trim(),
+        }),
       });
 
-      const response = await fetch(
-        "https://readdy.ai/api/form/submit/contact-form",
-        {
-          method: "POST",
-          body: new URLSearchParams(formDataToSend as any),
-        }
-      );
+      const data = await response.json();
 
-      if (response.ok) {
+      if (data.success) {
         setSubmitStatus("success");
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          company: "",
-          service: "",
-          budget: "",
-          message: "",
-          timeline: "",
-        });
+        setTimeout(() => {
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            service: "",
+            message: "",
+            company: "",
+            budget: "",
+            timeline: "",
+          });
+          setSubmitStatus("idle");
+        }, 3000);
       } else {
-        setSubmitStatus("error");
+        throw new Error("Form submission failed");
       }
     } catch (error) {
+      console.error("Email sending failed:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
