@@ -497,7 +497,7 @@ ${formData.message || "No additional details provided"}
                         rel="noopener noreferrer"
                         className="text-gray-300 hover:text-green-400 transition-colors cursor-pointer"
                       >
-                        D-244, Sector 75, Chandigarh, Mohali
+                        D-244, Sector 74, Chandigarh, Mohali
                       </a>
                     </div>
                   </div>

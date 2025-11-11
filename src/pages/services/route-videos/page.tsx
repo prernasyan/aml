@@ -2,8 +2,23 @@ import { Link } from "react-router-dom";
 import Header from "../../../components/feature/Header";
 import Footer from "../../../components/feature/Footer";
 import WhatsAppFloat from "../../../components/feature/WhatsAppFloat";
+import PortfolioSection from "../../home/components/PortfolioSection";
+import { useState } from "react";
+import Button from "../../../components/base/Button";
 
 export default function RouteVideosPage() {
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    project_type: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
   const features = [
     {
       icon: "ri-road-map-line",
@@ -52,30 +67,85 @@ export default function RouteVideosPage() {
     "Compelling visual storytelling of the journey experience",
   ];
 
-  const portfolioItems = [
+  const portfolioProjects = [
     {
-      title: "Luxury Resort Route Video",
-      image:
-        "https://readdy.ai/api/search-image?query=Aerial%20cinematic%20route%20video%20showcasing%20luxury%20resort%20development%20with%20winding%20roads%20through%20lush%20tropical%20landscape%2C%20modern%20architecture%20buildings%20connected%20by%20scenic%20pathways%2C%20birds%20eye%20view%20perspective%2C%20professional%20real%20estate%20marketing%20cinematography%2C%20golden%20hour%20lighting&width=600&height=400&seq=route-portfolio-1&orientation=landscape",
+      id: 7,
+      title: "Hero Homes-The Palatial, Gurugram",
+      category: "Route Videos",
+      image: "/images/portfolio/14.png",
       description:
-        "Dynamic route visualization showcasing scenic pathways to premium resort development",
-    },
-    {
-      title: "Urban Township Access",
-      image:
-        "https://readdy.ai/api/search-image?query=Professional%20route%20video%20of%20urban%20township%20development%20showing%20main%20road%20access%2C%20traffic%20flow%2C%20modern%20infrastructure%2C%20street%20lighting%2C%20landscaping%2C%20and%20connectivity%20to%20city%20center%2C%20cinematic%20real%20estate%20marketing%20style&width=600&height=400&seq=route-portfolio-2&orientation=landscape",
-      description:
-        "Comprehensive access route documentation for large-scale township project",
-    },
-    {
-      title: "Highway Connectivity Showcase",
-      image:
-        "https://readdy.ai/api/search-image?query=Highway%20route%20video%20showing%20smooth%20connectivity%20to%20residential%20development%2C%20modern%20road%20infrastructure%2C%20clear%20signage%2C%20landscaped%20medians%2C%20professional%20cinematography%20for%20real%20estate%20marketing%2C%20daylight%20conditions&width=600&height=400&seq=route-portfolio-3&orientation=landscape",
-      description:
-        "Strategic highway access visualization highlighting excellent connectivity",
+        "Dynamic route visualization showcasing different approach routes to reach the project site highlighting nearby landmarks and markers for easy navigation.",
+      videoUrl:
+        "https://www.youtube.com/embed/ENlsfe7wQRs?si=y4M05nZkVgJPmB9U&autoplay=1",
+      duration: "6:34",
     },
   ];
 
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "a557c293-5de3-4d54-8636-50b7d3c406c7",
+          subject: `Route Videos Inquiry - ${formData.name}`,
+          from_name: formData.name,
+          from_email: formData.email,
+          message: `
+New Route Videos Inquiry
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || "Not provided"}
+Project Type: ${formData.project_type || "Not specified"}
+
+Project Details:
+${formData.message || "No additional details provided"}
+        `.trim(),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus("success");
+        setTimeout(() => {
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            project_type: "",
+            message: "",
+          });
+          setSubmitStatus("idle");
+        }, 3000);
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Email sending failed:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -196,31 +266,183 @@ export default function RouteVideosPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {portfolioItems.map((item, index) => (
-              <div key={index} className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-2xl bg-gray-900 mb-6">
+            {portfolioProjects.map((project) => (
+              <div
+                key={project.id}
+                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                onClick={() => setSelectedProject(project)}
+              >
+                <div className="relative overflow-hidden">
                   <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="text-center text-white">
-                      <i className="ri-play-circle-line text-4xl mb-2"></i>
-                      <p className="text-sm">View Route Video</p>
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center">
+                      <i className="ri-play-fill text-2xl text-black"></i>
                     </div>
                   </div>
+                  <div className="absolute top-4 right-4 bg-black/80 text-white px-3 py-1 rounded-full text-sm">
+                    {project.duration}
+                  </div>
+                  <div className="absolute bottom-4 left-4 bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-semibold">
+                    {project.category}
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-black mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 text-sm">{item.description}</p>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-black mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-black/70">{project.description}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+      <PortfolioSection />
+      {/* Contact Form Section */}
+      <section className="py-24 bg-yellow-400">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
+                Get Your Route Vidoes Quote
+              </h2>
+              <div className="w-20 h-1 bg-black mx-auto mb-8"></div>
+              <p className="text-lg text-black/80">
+                Ready to bring your architectural vision to life? Contact us for
+                a custom quote.
+              </p>
+            </div>
 
+            <div className="bg-white rounded-2xl p-8 shadow-2xl">
+              <form
+                // id="walkthrough-inquiry-form"
+                onSubmit={handleSubmit}
+                className="space-y-6"
+              >
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-sm"
+                      placeholder="Your full name"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-sm"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Phone
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-sm"
+                      placeholder="Your phone number"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Project Type
+                    </label>
+                    <select
+                      name="project_type"
+                      value={formData.project_type}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 pr-8 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-sm"
+                    >
+                      <option value="">Select project type</option>
+                      <option value="residential">Residential Complex</option>
+                      <option value="commercial">Commercial Building</option>
+                      <option value="retail">Retail/Shopping Center</option>
+                      <option value="hospitality">Hotel/Resort</option>
+                      <option value="educational">Educational Campus</option>
+                      <option value="healthcare">Healthcare Facility</option>
+                      <option value="mixed-use">Mixed-Use Development</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Project Details
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    rows={4}
+                    maxLength={500}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-sm resize-none"
+                    placeholder="Tell us about your project requirements, timeline, and any specific features you'd like to highlight..."
+                  ></textarea>
+                  <div className="text-right text-xs text-gray-500 mt-1">
+                    {formData.message.length}/500 characters
+                  </div>
+                </div>
+
+                <Button variant="primary" size="lg" className="w-full">
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center space-x-2">
+                      <i className="ri-loader-4-line animate-spin"></i>
+                      <span>Sending.....</span>
+                    </span>
+                  ) : (
+                    <span className="flex items-center justify-center space-x-2">
+                      <span>Send Inquiry via Email</span>
+                      <i className="ri-mail-send-line"></i>
+                    </span>
+                  )}
+                </Button>
+
+                {submitStatus === "success" && (
+                  <div className="text-green-600 text-center font-medium">
+                    Thank you! We'll get back to you with a custom quote within
+                    24 hours.
+                  </div>
+                )}
+
+                {submitStatus === "error" && (
+                  <div className="text-red-600 text-center font-medium">
+                    Sorry, there was an error. Please email us directly at
+                    info@alliancemedialabs.com
+                  </div>
+                )}
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* CTA Section */}
       <section className="py-20 bg-black">
         <div className="container mx-auto px-6 text-center">
@@ -239,7 +461,73 @@ export default function RouteVideosPage() {
           </Link>
         </div>
       </section>
-
+      {/* Modal for Portfolio Details */}
+      {selectedProject && (
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-6">
+          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="relative">
+              {/* <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="w-full h-64 md:h-96 object-cover"
+              /> */}
+              <div className="aspect-video">
+                <iframe
+                  src={selectedProject.videoUrl}
+                  title={selectedProject.title}
+                  className="w-full h-full rounded-t-2xl"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-4 right-4 w-10 h-10 bg-black/80 text-white rounded-full flex items-center justify-center hover:bg-black transition-colors"
+              >
+                <i className="ri-close-line text-xl"></i>
+              </button>
+              {/* <div className="absolute bottom-4 left-4 bg-yellow-400 text-black px-4 py-2 rounded-full font-semibold">
+                {selectedProject.category}
+              </div> */}
+            </div>
+            <div className="p-8">
+              <h3 className="text-3xl font-bold text-black mb-4">
+                {selectedProject.title}
+              </h3>
+              <p className="text-black/70 text-lg mb-6">
+                {selectedProject.description}
+              </p>
+              <div className="flex items-center space-x-6 mb-6">
+                <div className="flex items-center space-x-2">
+                  <i className="ri-time-line text-yellow-400"></i>
+                  <span className="text-black">
+                    Duration: {selectedProject.duration}
+                  </span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <i className="ri-play-circle-line text-yellow-400"></i>
+                  <span className="text-black">HD Quality</span>
+                </div>
+              </div>
+              {/* <div className="flex space-x-4">
+                <Button variant="primary">
+                  <span className="flex items-center space-x-2">
+                    <i className="ri-play-fill"></i>
+                    <span>Watch Video</span>
+                  </span>
+                </Button>
+                <Button variant="outline">
+                  <span className="flex items-center space-x-2">
+                    <i className="ri-download-line"></i>
+                    <span>Download</span>
+                  </span>
+                </Button>
+              </div> */}
+            </div>
+          </div>
+        </div>
+      )}
       <Footer />
       <WhatsAppFloat />
     </div>

@@ -4,6 +4,267 @@ import { Link } from "react-router-dom";
 import PortfolioSection from "../../home/components/PortfolioSection";
 import { useState } from "react";
 import Button from "../../../components/base/Button";
+type PortfolioItem = {
+  id: number;
+  title: string;
+  category: string;
+  image: string;
+  description: string;
+  videoUrl?: string;
+  hasSlider?: boolean;
+  sliderImages?: Array<{
+    url: string;
+    title: string;
+    description: string;
+  }>;
+  hasGallery?: boolean;
+  galleryImages?: Array<{
+    url: string;
+    title: string;
+    description: string;
+  }>;
+};
+const portfolioItems: PortfolioItem[] = [
+  {
+    id: 1,
+    title: "Centonic, Pune",
+    category: "Scale Models",
+    image: "/images/services/architectural-scale-models/1.jpg",
+    description:
+      "Precision architectural scale model showcasing Centonic's contemporary residential development in Pune, featuring detailed landscaping, modern tower structures, and comprehensive amenity planning.",
+    hasGallery: true,
+    galleryImages: [
+      {
+        url: "/images/services/architectural-scale-models/centonic/1.jpeg",
+        title: "Centonic Main Tower Complex",
+        description:
+          "Detailed scale model of the primary residential towers with surrounding landscape elements and pedestrian pathways",
+      },
+      {
+        url: "/images/services/architectural-scale-models/centonic/2.jpeg",
+        title: "Amenity Zone Layout",
+        description:
+          "Miniature representation of recreational facilities including clubhouse, pool area, and community spaces",
+      },
+      {
+        url: "/images/services/architectural-scale-models/centonic/3.jpeg",
+        title: "Tower Elevation Detail",
+        description:
+          "Close-up view showcasing architectural facade details, balcony arrangements, and building proportion accuracy",
+      },
+      {
+        url: "/images/services/architectural-scale-models/centonic/4.jpeg",
+        title: "Master Plan Overview",
+        description:
+          "Complete aerial perspective of the Centonic development showing site planning and spatial organization",
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Indian Railways",
+    category: "Scale Models",
+    image: "/images/services/architectural-scale-models/2.jpg",
+    description:
+      "Intricate scale model for Indian Railways infrastructure project, demonstrating station layouts, platform configurations, and surrounding urban integration with meticulous attention to operational details.",
+    hasGallery: true,
+    galleryImages: [
+      {
+        url: "/images/services/architectural-scale-models/railways/1.jpeg",
+        title: "Railway Station Complex",
+        description:
+          "Comprehensive model showing station building architecture, platform arrangements, and passenger circulation areas",
+      },
+      {
+        url: "/images/services/architectural-scale-models/railways/2.jpeg",
+        title: "Platform Infrastructure",
+        description:
+          "Detailed representation of railway tracks, platform edges, overhead structures, and signaling systems",
+      },
+      {
+        url: "/images/services/architectural-scale-models/railways/3.jpeg",
+        title: "Terminal Building Facade",
+        description:
+          "Architectural elevation model highlighting the station's main entrance, roof design, and structural elements",
+      },
+      {
+        url: "/images/services/architectural-scale-models/railways/4.jpeg",
+        title: "Transit Integration Hub",
+        description:
+          "Scale model depicting connectivity between railway platforms and surrounding transportation networks",
+      },
+      {
+        url: "/images/services/architectural-scale-models/railways/5.jpeg",
+        title: "Station Master Plan",
+        description:
+          "Bird's eye view of the complete railway infrastructure showcasing track layouts and station positioning",
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "Hiranandani Meadows, Thane",
+    category: "Scale Models",
+    image: "/images/services/architectural-scale-models/3.jpg",
+    description:
+      "Elaborate architectural scale model of Hiranandani Meadows in Thane, capturing the sprawling residential township with multi-story buildings, green corridors, and integrated community facilities.",
+    hasGallery: true,
+    galleryImages: [
+      {
+        url: "/images/services/architectural-scale-models/hiranandani/1.jpeg",
+        title: "Township Residential Clusters",
+        description:
+          "Multiple residential tower models arranged to show the planned neighborhood layout and density distribution",
+      },
+      {
+        url: "/images/services/architectural-scale-models/hiranandani/2.jpeg",
+        title: "Central Landscaped Gardens",
+        description:
+          "Miniature green spaces featuring walking paths, water features, and recreational zones within the township",
+      },
+      {
+        url: "/images/services/architectural-scale-models/hiranandani/3.jpeg",
+        title: "High-Rise Tower Detail",
+        description:
+          "Individual tower model showcasing architectural style, floor-to-floor heights, and facade treatment",
+      },
+      {
+        url: "/images/services/architectural-scale-models/hiranandani/4.jpeg",
+        title: "Community Center Complex",
+        description:
+          "Scale representation of shared facilities including clubhouse, sports areas, and social gathering spaces",
+      },
+      {
+        url: "/images/services/architectural-scale-models/hiranandani/5.jpeg",
+        title: "Master Township Layout",
+        description:
+          "Complete site model displaying road networks, building clusters, and open space distribution across the development",
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "Venkatesh Skydale, Pune",
+    category: "Scale Models",
+    image: "/images/services/architectural-scale-models/4.jpg",
+    description:
+      "Sophisticated scale model of Venkatesh Skydale residential project in Pune, highlighting the twin-tower configuration, podium-level amenities, and contextual urban setting with accurate proportions.",
+    hasGallery: true,
+    galleryImages: [
+      {
+        url: "/images/services/architectural-scale-models/venkatesh/1.jpeg",
+        title: "Twin Tower Configuration",
+        description:
+          "Architectural model showing both residential towers with connecting podium and vertical circulation cores",
+      },
+      {
+        url: "/images/services/architectural-scale-models/venkatesh/2.jpeg",
+        title: "Podium Level Amenities",
+        description:
+          "Ground and podium floor model featuring entrance lobbies, parking areas, and resident facilities",
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: "Spree City, Sonipat",
+    category: "Scale Models",
+    image: "/images/services/architectural-scale-models/5.jpg",
+    description:
+      "Comprehensive architectural scale model for Spree City in Sonipat, representing a mixed-use development with residential zones, commercial areas, and extensive landscaping across multiple phases.",
+    hasGallery: true,
+    galleryImages: [
+      {
+        url: "/images/services/architectural-scale-models/spree/1.jpeg",
+        title: "Mixed-Use Development Core",
+        description:
+          "Central area model showing integration of residential, retail, and commercial components",
+      },
+      {
+        url: "/images/services/architectural-scale-models/spree/2.jpeg",
+        title: "Residential Phase Clusters",
+        description:
+          "Housing sector models depicting apartment buildings, row houses, and supporting infrastructure",
+      },
+      {
+        url: "/images/services/architectural-scale-models/spree/3.jpeg",
+        title: "Commercial District Zone",
+        description:
+          "Scale model of business and retail areas with office buildings and shopping complexes",
+      },
+      {
+        url: "/images/services/architectural-scale-models/spree/4.jpeg",
+        title: "Green Corridor Network",
+        description:
+          "Landscape model showing interconnected parks, tree-lined avenues, and pedestrian-friendly pathways",
+      },
+      {
+        url: "/images/services/architectural-scale-models/spree/5.jpeg",
+        title: "Complete City Master Plan",
+        description:
+          "Expansive overview model presenting all development phases, infrastructure, and land use distribution",
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: "Skyline Realty, Hyderabad",
+    category: "Scale Models",
+    image: "/images/services/architectural-scale-models/6.jpg",
+    description:
+      "Detailed architectural scale model for Skyline Realty's premium development in Hyderabad, showcasing contemporary high-rise design, rooftop amenities, and sophisticated urban living spaces.",
+    hasGallery: true,
+    galleryImages: [
+      {
+        url: "/images/services/architectural-scale-models/skyline/1.jpeg",
+        title: "Premium Tower Elevation",
+        description:
+          "High-rise residential tower model with detailed facade articulation and balcony projections",
+      },
+      {
+        url: "/images/services/architectural-scale-models/skyline/2.jpeg",
+        title: "Rooftop Amenity Deck",
+        description:
+          "Top-floor amenity level showcasing swimming pool, gym facilities, and sky lounge areas",
+      },
+      {
+        url: "/images/services/architectural-scale-models/skyline/3.jpeg",
+        title: "Entrance Plaza Design",
+        description:
+          "Ground level model featuring grand entrance, drop-off area, and landscaped arrival court",
+      },
+      {
+        url: "/images/services/architectural-scale-models/skyline/4.jpeg",
+        title: "Site Context Integration",
+        description:
+          "Complete development model showing relationship with surrounding roads, neighboring buildings, and urban fabric",
+      },
+    ],
+  },
+  {
+    id: 7,
+    title: "Island City Centre, Mumbai",
+    category: "Scale Models",
+    image: "/images/services/architectural-scale-models/7.jpg",
+    description:
+      "Premium architectural scale model of Island City Centre in Mumbai, depicting a landmark mixed-use development with commercial towers, retail podiums, and waterfront promenade integration.",
+    hasGallery: true,
+    galleryImages: [
+      {
+        url: "/images/services/architectural-scale-models/island/1.jpeg",
+        title: "Commercial Tower Complex",
+        description:
+          "Multi-tower model showing office buildings, retail podium, and multi-level parking structures",
+      },
+      {
+        url: "/images/services/architectural-scale-models/island/2.jpeg",
+        title: "Waterfront Promenade",
+        description:
+          "Detailed model of public realm areas with pedestrian walkways, seating zones, and waterfront landscaping",
+      },
+    ],
+  },
+];
 
 export default function ArchitecturalScaleModelsPage() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
@@ -18,18 +279,49 @@ export default function ArchitecturalScaleModelsPage() {
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
   >("idle");
-  const portfolioProjects = [
-    {
-      id: 10,
-      title: "Township Development Model",
-      category: "Architectural Scale Models",
-      image: "/images/portfolio/22.jpg",
-      description:
-        "Physical and digital scale models providing tangible representation of architectural concepts and development masterplans.",
-      videoUrl:
-        "https://www.youtube.com/embed/BiCKdx0fDik?si=y4M05nZkVgJPmB9U&autoplay=1",
-    },
-  ];
+  const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+  const handleItemClick = (item: (typeof portfolioItems)[0]) => {
+    setSelectedItem(item);
+    setCurrentSlideIndex(0);
+  };
+
+  const closeModal = () => {
+    setSelectedItem(null);
+    setCurrentSlideIndex(0);
+  };
+
+  const nextSlide = () => {
+    if (selectedItem?.sliderImages) {
+      setCurrentSlideIndex((prev) =>
+        prev === selectedItem.sliderImages!.length - 1 ? 0 : prev + 1
+      );
+    }
+    if (selectedItem?.galleryImages) {
+      setCurrentSlideIndex((prev) =>
+        prev === selectedItem.galleryImages!.length - 1 ? 0 : prev + 1
+      );
+    }
+  };
+
+  const prevSlide = () => {
+    if (selectedItem?.sliderImages) {
+      setCurrentSlideIndex((prev) =>
+        prev === 0 ? selectedItem.sliderImages!.length - 1 : prev - 1
+      );
+    }
+    if (selectedItem?.galleryImages) {
+      setCurrentSlideIndex((prev) =>
+        prev === 0 ? selectedItem.galleryImages!.length - 1 : prev - 1
+      );
+    }
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlideIndex(index);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -228,7 +520,7 @@ ${formData.message || "No additional details provided"}
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
-                Scale Model Portfolio
+                Architectural Scale Model Portfolio
               </h2>
               <div className="w-20 h-1 bg-yellow-400 mx-auto mb-6"></div>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
@@ -236,12 +528,14 @@ ${formData.message || "No additional details provided"}
                 presentations
               </p>
             </div>
+
+            {/* Project Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {portfolioProjects.map((project) => (
+              {portfolioItems.map((project) => (
                 <div
                   key={project.id}
                   className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-                  onClick={() => setSelectedProject(project)}
+                  onClick={() => handleItemClick(project)}
                 >
                   <div className="relative overflow-hidden">
                     <img
@@ -251,12 +545,16 @@ ${formData.message || "No additional details provided"}
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center">
-                        <i className="ri-play-fill text-2xl text-black"></i>
+                        <i
+                          className={`${
+                            project.hasGallery || project.hasSlider
+                              ? "ri-image-line"
+                              : "ri-play-fill"
+                          } text-2xl text-black`}
+                        ></i>
                       </div>
                     </div>
-                    {/* <div className="absolute top-4 right-4 bg-black/80 text-white px-3 py-1 rounded-full text-sm">
-                      {project.duration}
-                    </div> */}
+
                     <div className="absolute bottom-4 left-4 bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-semibold">
                       {project.category}
                     </div>
@@ -270,142 +568,196 @@ ${formData.message || "No additional details provided"}
                 </div>
               ))}
             </div>
-            {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                <img
-                  src="/images/services/architectural-scale-models/2.jpg"
-                  alt="Residential Complex Model"
-                  className="w-full h-48 object-cover object-top"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-black mb-2">
-                    Riverside Gardens
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Detailed scale model showcasing 200-unit residential
-                    development with amenities.
-                  </p>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <i className="ri-ruler-line mr-2"></i>
-                    <span>Scale: 1:500</span>
-                  </div>
-                </div>
-              </div>
+          </div>
 
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                <img
-                  src="/images/services/architectural-scale-models/3.jpg"
-                  alt="Office Building Model"
-                  className="w-full h-48 object-cover object-top"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-black mb-2">
-                    Corporate Tower
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    High-detail model of 40-story office building with
-                    integrated lighting system.
-                  </p>
-                  <div className="flex items-center text-sm text-gray-5 0">
-                    <i className="ri-ruler-line mr-2"></i>
-                    <span>Scale: 1:200</span>
-                  </div>
-                </div>
-              </div>
+          {/* Modal with Slider/Gallery */}
+          {selectedItem && (
+            <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+              <div className="bg-white rounded-2xl overflow-hidden max-w-5xl w-full relative max-h-[90vh] overflow-y-auto">
+                {/* Close Button */}
+                <button
+                  onClick={closeModal}
+                  className="absolute top-4 right-4 w-10 h-10 bg-black/50 rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-colors cursor-pointer z-20"
+                >
+                  <i className="ri-close-line text-xl"></i>
+                </button>
 
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                <img
-                  src="/images/services/architectural-scale-models/4.jpg"
-                  alt="Mixed-Use Model"
-                  className="w-full h-48 object-cover object-top"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-black mb-2">
-                    City Center Plaza
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Comprehensive mixed-use model featuring retail, office, and
-                    residential spaces.
-                  </p>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <i className="ri-ruler-line mr-2"></i>
-                    <span>Scale: 1:300</span>
-                  </div>
-                </div>
-              </div>
+                {selectedItem.hasSlider ? (
+                  // Slider for 3D Rendering
+                  <div>
+                    <div className="relative h-96 md:h-[500px] overflow-hidden">
+                      <div
+                        className="flex transition-transform duration-500 ease-in-out h-full"
+                        style={{
+                          transform: `translateX(-${currentSlideIndex * 100}%)`,
+                        }}
+                      >
+                        {selectedItem.sliderImages?.map((slide, index) => (
+                          <div
+                            key={index}
+                            className="w-full h-full flex-shrink-0 relative"
+                          >
+                            <img
+                              src={slide.url}
+                              alt={slide.title}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        ))}
+                      </div>
 
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                <img
-                  src="/images/services/architectural-scale-models/5.jpg"
-                  alt="Shopping Mall Model"
-                  className="w-full h-48 object-cover object-top"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-black mb-2">
-                    Grand Mall
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Multi-level retail complex model with detailed interior
-                    spaces and lighting.
-                  </p>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <i className="ri-ruler-line mr-2"></i>
-                    <span>Scale: 1:400</span>
-                  </div>
-                </div>
-              </div>
+                      {/* Navigation Arrows */}
+                      {selectedItem.sliderImages &&
+                        selectedItem.sliderImages.length > 1 && (
+                          <>
+                            <button
+                              onClick={prevSlide}
+                              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/50 rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-colors cursor-pointer z-10"
+                            >
+                              <i className="ri-arrow-left-line text-xl"></i>
+                            </button>
+                            <button
+                              onClick={nextSlide}
+                              className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/50 rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-colors cursor-pointer z-10"
+                            >
+                              <i className="ri-arrow-right-line text-xl"></i>
+                            </button>
+                          </>
+                        )}
+                    </div>
 
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                <img
-                  src="/images/services/architectural-scale-models/6.jpg"
-                  alt="Hospital Complex Model"
-                  className="w-full h-48 object-cover object-top"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-black mb-2">
-                    Medical Center
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Comprehensive healthcare facility model with multiple
-                    specialized buildings.
-                  </p>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <i className="ri-ruler-line mr-2"></i>
-                    <span>Scale: 1:600</span>
-                  </div>
-                </div>
-              </div>
+                    {/* Slide Indicators */}
+                    {selectedItem.sliderImages &&
+                      selectedItem.sliderImages.length > 1 && (
+                        <div className="flex justify-center space-x-2 py-4 bg-gray-100">
+                          {selectedItem.sliderImages.map((_, index) => (
+                            <button
+                              key={index}
+                              onClick={() => goToSlide(index)}
+                              className={`w-3 h-3 rounded-full transition-colors cursor-pointer ${
+                                index === currentSlideIndex
+                                  ? "bg-yellow-400"
+                                  : "bg-gray-400"
+                              }`}
+                            ></button>
+                          ))}
+                        </div>
+                      )}
 
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                <img
-                  src="/images/services/architectural-scale-models/7.jpg"
-                  alt="University Campus Model"
-                  className="w-full h-48 object-cover object-top"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-black mb-2">
-                    Tech University
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Master plan model of new university campus with academic and
-                    residential buildings.
-                  </p>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <i className="ri-ruler-line mr-2"></i>
-                    <span>Scale: 1:1000</span>
+                    <div className="p-8">
+                      <div className="text-yellow-400 text-sm font-medium mb-2">
+                        {selectedItem.category}
+                      </div>
+                      <h3 className="text-3xl font-bold text-black mb-4">
+                        {selectedItem.title}
+                      </h3>
+                      <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                        {selectedItem.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </div> */}
+                ) : selectedItem.hasGallery ? (
+                  // Gallery for 3D Isometrics
+                  <div>
+                    <div className="relative h-96 md:h-[500px] overflow-hidden">
+                      <div
+                        className="flex transition-transform duration-500 ease-in-out h-full"
+                        style={{
+                          transform: `translateX(-${currentSlideIndex * 100}%)`,
+                        }}
+                      >
+                        {selectedItem.galleryImages?.map((image, index) => (
+                          <div
+                            key={index}
+                            className="w-full h-full flex-shrink-0 relative"
+                          >
+                            <img
+                              src={image.url}
+                              alt={image.title}
+                              className="w-full h-full object-contain bg-gray-100"
+                            />
+                          </div>
+                        ))}
+                      </div>
 
-            <div className="text-center mt-12">
-              <Link
-                to="/portfolio"
-                className="bg-yellow-400 text-black px-8 py-4 rounded-full font-semibold hover:bg-yellow-300 transition-colors whitespace-nowrap cursor-pointer"
-              >
-                View Our Portfolio
-              </Link>
+                      {/* Navigation Arrows */}
+                      {selectedItem.galleryImages &&
+                        selectedItem.galleryImages.length > 1 && (
+                          <>
+                            <button
+                              onClick={prevSlide}
+                              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/50 rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-colors cursor-pointer z-10"
+                            >
+                              <i className="ri-arrow-left-line text-xl"></i>
+                            </button>
+                            <button
+                              onClick={nextSlide}
+                              className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/50 rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-colors cursor-pointer z-10"
+                            >
+                              <i className="ri-arrow-right-line text-xl"></i>
+                            </button>
+                          </>
+                        )}
+                    </div>
+
+                    {/* Gallery Indicators */}
+                    {selectedItem.galleryImages &&
+                      selectedItem.galleryImages.length > 1 && (
+                        <div className="flex justify-center space-x-2 py-4 bg-gray-100">
+                          {selectedItem.galleryImages.map((_, index) => (
+                            <button
+                              key={index}
+                              onClick={() => goToSlide(index)}
+                              className={`w-3 h-3 rounded-full transition-colors cursor-pointer ${
+                                index === currentSlideIndex
+                                  ? "bg-yellow-400"
+                                  : "bg-gray-400"
+                              }`}
+                            ></button>
+                          ))}
+                        </div>
+                      )}
+
+                    <div className="p-8">
+                      <div className="text-yellow-400 text-sm font-medium mb-2">
+                        {selectedItem.category}
+                      </div>
+                      <h3 className="text-3xl font-bold text-black mb-4">
+                        {selectedItem.title}
+                      </h3>
+                      <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                        {selectedItem.description}
+                      </p>
+                      {selectedItem.galleryImages &&
+                        selectedItem.galleryImages[currentSlideIndex] && (
+                          <div className="bg-gray-50 rounded-lg p-4">
+                            <h4 className="font-semibold text-black mb-2">
+                              {
+                                selectedItem.galleryImages[currentSlideIndex]
+                                  .title
+                              }
+                            </h4>
+                            <p className="text-gray-600 text-sm">
+                              {
+                                selectedItem.galleryImages[currentSlideIndex]
+                                  .description
+                              }
+                            </p>
+                          </div>
+                        )}
+                    </div>
+                  </div>
+                ) : null}
+              </div>
             </div>
+          )}
+          <div className="text-center mt-12">
+            <Link
+              to="/portfolio"
+              className="bg-yellow-400 text-black px-8 py-4 rounded-full font-semibold hover:bg-yellow-300 transition-colors whitespace-nowrap cursor-pointer"
+            >
+              View Our Portfolio
+            </Link>
           </div>
         </section>
 

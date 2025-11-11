@@ -6,7 +6,7 @@ import { useState } from "react";
 import Button from "../../../components/base/Button";
 const portfolioItems = [
   {
-    id: 4,
+    id: 1,
     title: "Multiple Projects",
     category: "3D Rendering",
     image: "/images/portfolio/4.png",
@@ -44,7 +44,7 @@ const portfolioItems = [
     ],
   },
   {
-    id: 8,
+    id: 2,
     title: "Etereo 1, Goa",
     category: "3D Isometrics",
     image: "/images/portfolio/15.jpg",
@@ -55,20 +55,61 @@ const portfolioItems = [
     hasGallery: true,
     galleryImages: [
       {
-        url: "/images/portfolio/16.jpeg",
+        url: "/images/services/3d-renders-isometrics/etereo/1.jpg",
         title: "Master Plan Isometric",
         description:
           "Complete site layout with residential blocks and amenities",
       },
       {
-        url: "/images/portfolio/17.jpg",
+        url: "/images/services/3d-renders-isometrics/etereo/2.jpg",
         title: "Building Isometric View",
         description: "Detailed residential building with floor plan layouts",
       },
       {
-        url: "/images/portfolio/18.jpg",
+        url: "/images/services/3d-renders-isometrics/etereo/3.jpg",
         title: "Complex Layout Isometric",
         description: "Multi-tower residential development with amenities",
+      },
+      {
+        url: "/images/services/3d-renders-isometrics/etereo/4.jpg",
+        title: "Complex Layout Isometric",
+        description: "Multi-tower residential development with amenities",
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "Shree Radha Gopal Residency, Kosi",
+    category: "3D Renders",
+    image: "/images/portfolio/2.png",
+    description:
+      "Interactive VR tour of a residential plotted development with modern amenities and green spaces.",
+    hasSlider: true,
+    sliderImages: [
+      {
+        url: "/images/services/3d-renders-isometrics/shree-radha/1.png",
+        title: "Luxury Residential Complex",
+        description: "Modern residential development with premium amenities",
+      },
+      {
+        url: "/images/services/3d-renders-isometrics/shree-radha/2.jpg",
+        title: "Premium Interior Design",
+        description: "Sophisticated interior spaces with modern finishes",
+      },
+      {
+        url: "/images/services/3d-renders-isometrics/shree-radha/3.png",
+        title: "High-Rise Development",
+        description: "Urban residential tower with panoramic city views",
+      },
+      {
+        url: "/images/services/3d-renders-isometrics/shree-radha/4.png",
+        title: "Premium Villa Project",
+        description: "Exclusive villa development with luxury amenities",
+      },
+      {
+        url: "/images/services/3d-renders-isometrics/shree-radha/5.png",
+        title: "Master Plan Visualization",
+        description: "Complete residential development master planning",
       },
     ],
   },
