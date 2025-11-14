@@ -44,7 +44,7 @@ export default function Home() {
       },
       address: {
         "@type": "PostalAddress",
-        streetAddress: "D-244, Sector 75",
+        streetAddress: "D-244, Sector 74",
         addressLocality: "Chandigarh",
         addressRegion: "Mohali",
         addressCountry: "IN",

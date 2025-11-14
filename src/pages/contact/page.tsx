@@ -67,7 +67,7 @@ export default function ContactPage() {
         ],
         address: {
           "@type": "PostalAddress",
-          streetAddress: "D-244, Sector 75",
+          streetAddress: "D-244, Sector 74",
           addressLocality: "Chandigarh",
           addressRegion: "Mohali",
           addressCountry: "IN",
@@ -492,7 +492,7 @@ ${formData.message || "No additional details provided"}
                         Visit Us
                       </h3>
                       <a
-                        href="https://maps.google.com/?q=D-244,+Sector+75,+Chandigarh,+Mohali"
+                        href="https://maps.google.com/?q=D-244,+Sector+74,+Chandigarh,+Mohali"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-300 hover:text-green-400 transition-colors cursor-pointer"

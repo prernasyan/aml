@@ -131,7 +131,7 @@ ${formData.message || "No additional details provided"}
                 <div>
                   <p className="font-semibold text-black">Location</p>
                   <p className="text-black/80">
-                    D-244, Sector 75, Chandigarh, Mohali
+                    D-244, Sector 74, Chandigarh, Mohali
                   </p>
                 </div>
               </div>
