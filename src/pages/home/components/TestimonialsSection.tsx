@@ -70,6 +70,26 @@ const clientLogos = [
     name: "TRG",
     logo: "/images/testimonial/TRG.png",
   },
+  {
+    name: "GMI",
+    logo: "/images/testimonial/GMI-Infra-logo.png",
+  },
+  {
+    name: "Prime",
+    logo: "/images/testimonial/Prime-Developments-Logo.png",
+  },
+  {
+    name: "Rajdarbar",
+    logo: "/images/testimonial/Rajdarbar-Ventures.png",
+  },
+  {
+    name: "SAP",
+    logo: "/images/testimonial/SAP-Logo.png",
+  },
+  {
+    name: "Soul-n-Fuel",
+    logo: "/images/testimonial/Soul-n-Fuel.png",
+  },
 ];
 
 export default function TestimonialsSection() {
