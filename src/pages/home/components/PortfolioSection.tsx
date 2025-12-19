@@ -261,6 +261,16 @@ const portfolioItems = [
     videoUrl:
       "https://www.youtube.com/embed/nl1xegGywlc?si=y4M05nZkVgJPmB9U&autoplay=1",
   },
+  {
+    id: 20,
+    title: "Aura, Sector 79, Gurugram",
+    category: "Location AV",
+    image: "/images/portfolio/34.png",
+    description:
+      "A high-impact location walkthrough for Aura – Sector 79, Gurugram, designed to showcase premium connectivity and attract qualified property leads.",
+    videoUrl:
+      "https://www.youtube.com/embed/-6icu6ALbr4?si=0H-4fGbiNLi3y0fG&autoplay=1",
+  },
 ];
 
 const categories = [

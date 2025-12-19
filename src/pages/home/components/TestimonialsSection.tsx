@@ -90,6 +90,10 @@ const clientLogos = [
     name: "Soul-n-Fuel",
     logo: "/images/testimonial/Soul-n-Fuel.png",
   },
+  {
+    name: "Aura",
+    logo: "/images/testimonial/Aura_Logo.png",
+  },
 ];
 
 export default function TestimonialsSection() {
