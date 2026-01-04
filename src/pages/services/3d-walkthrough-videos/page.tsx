@@ -4,6 +4,71 @@ import Footer from "../../../components/feature/Footer";
 import Button from "../../../components/base/Button";
 import { Link } from "react-router-dom";
 import { Title, Meta } from "react-head";
+import Schema from "../../../components/base/Schema";
+
+// FAQ Schema Data
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is a 3D walkthrough video?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A 3D walkthrough video is a computer-generated visualization that allows users to experience a property virtually, showcasing interiors, exteriors, layouts, and design details. It is widely used in real estate and architectural marketing.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How is a 3D walkthrough different from a 3D virtual house tour?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A 3D walkthrough video follows a guided camera path, while a 3D virtual house tour allows users to explore the property interactively. Both are effective tools for real estate marketing.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Who should use 3D architectural walkthrough services?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "3D architectural walkthrough services are ideal for real estate developers, builders, architects, interior designers, and property marketing agencies.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you provide real estate 3D walkthrough services in India?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, Alliance Media Labs provides real estate 3D walkthrough services across India, including major cities like Delhi NCR, Mumbai, Bangalore, Pune, and Hyderabad.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can 3D walkthroughs be created for under-construction properties?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, 3D property walkthroughs are ideal for under-construction and pre-launch projects, helping buyers visualize the final property before completion.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How long does it take to create a 3D walkthrough video?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Depending on the project size and complexity, a 3D walkthrough video typically takes between 7 days to 3 weeks to complete.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the cost of a 3D walkthrough service in India?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The cost of a 3D walkthrough service in India depends on property size, level of detail, and project requirements. Custom pricing is available based on scope.",
+      },
+    },
+  ],
+};
 
 export default function WalkthroughVideosPage() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
@@ -121,7 +186,8 @@ ${formData.message || "No additional details provided"}
         property="og:url"
         content="https://alliancemedialabs.com/walkthrough-videos"
       />
-
+      {/* Add Schema for SEO */}
+      <Schema schema={faqSchema} />
       <div className="min-h-screen bg-white">
         <Header />
 
