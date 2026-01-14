@@ -212,17 +212,17 @@ const portfolioItems = [
     videoUrl: "https://amlabs.cloud/ATS_PDO/",
     isExternal: true,
   },
-  {
-    id: 18,
-    title: "Resort & Spa VR Journey",
-    category: "VR Experience",
-    image: "/images/portfolio/25.jpg",
-    description:
-      "Comprehensive VR experience showcasing luxury resort amenities, spa facilities, and premium accommodation options.",
-    videoUrl:
-      "https://www.youtube.com/embed/BiCKdx0fDik?si=y4M05nZkVgJPmB9U&autoplay=1",
-    isExternal: false,
-  },
+  // {
+  //   id: 18,
+  //   title: "Resort & Spa VR Journey",
+  //   category: "VR Experience",
+  //   image: "/images/portfolio/25.jpg",
+  //   description:
+  //     "Comprehensive VR experience showcasing luxury resort amenities, spa facilities, and premium accommodation options.",
+  //   videoUrl:
+  //     "https://www.youtube.com/embed/BiCKdx0fDik?si=y4M05nZkVgJPmB9U&autoplay=1",
+  //   isExternal: false,
+  // },
   {
     id: 19,
     title: "Altura DXP 92, Gurugram",
@@ -252,6 +252,56 @@ const portfolioItems = [
       "A high-impact location walkthrough for Aura – Sector 79, Gurugram, designed to showcase premium connectivity and attract qualified property leads.",
     videoUrl:
       "https://www.youtube.com/embed/-6icu6ALbr4?si=0H-4fGbiNLi3y0fG&autoplay=1",
+  },
+  {
+    id: 22,
+    title: "GMI Elite Homes, Mohali",
+    category: "Construction Updates",
+    image: "/images/portfolio/12.png",
+    description:
+      "Visual documentation of GMI Elite Homes, capturing the construction journey of a modern multi-tower residential project designed for refined, upscale living.",
+    videoUrl:
+      "https://www.youtube.com/embed/cCE1QRmeIRU?si=y4M05nZkVgJPmB9U&autoplay=1",
+  },
+  {
+    id: 27,
+    title: "Prime Residences, Gurugram ",
+    category: "Construction Updates",
+    image: "/images/portfolio/11.png",
+    description:
+      "Construction progress documentation capturing the development of Prime Residences — a contemporary residential project defined by modern architecture and thoughtfully curated amenities.",
+    videoUrl:
+      "https://www.youtube.com/embed/ZLblD-AEilk?si=y4M05nZkVgJPmB9U&autoplay=1",
+  },
+  {
+    id: 24,
+    title: "SAP Experience Center, Bengaluru",
+    category: "VR Experience",
+    image: "/images/portfolio/23.png",
+    description:
+      "Matterport-powered virtual tour created for the SAP Experience Center, delivering an immersive and interactive walkthrough.",
+    videoUrl: "https://my.matterport.com/show/?m=ceeiCLowE6C",
+    isExternal: true,
+  },
+  {
+    id: 25,
+    title: "SAP S Market, Bengaluru",
+    category: "VR Experience",
+    image: "/images/portfolio/24.png",
+    description:
+      "High-fidelity Matterport virtual walkthrough developed for the SAP S Market.",
+    videoUrl: " https://my.matterport.com/show/?m=R5jPFcjQaeh",
+    isExternal: true,
+  },
+  {
+    id: 26,
+    title: "Sanfran Sarovar Heights, Jhansi",
+    category: "VR Experience",
+    image: "/images/portfolio/21.jpg",
+    description:
+      "Immersive virtual tour showcasing high-rise towers of Sanfran Sarovar Heights, highlighting advanced functionalities and modern residential design.",
+    videoUrl: " https://amlabs.cloud/SSH_V3/",
+    isExternal: true,
   },
 ];
 

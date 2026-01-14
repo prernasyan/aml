@@ -497,7 +497,7 @@ ${formData.message || "No additional details provided"}
                         rel="noopener noreferrer"
                         className="text-gray-300 hover:text-green-400 transition-colors cursor-pointer"
                       >
-                        D-244, Sector 74, Chandigarh, Mohali
+                        Unit 4, 3rd Floor, D-244, Sector 74, Mohali, Chandigarh
                       </a>
                     </div>
                   </div>
@@ -582,7 +582,7 @@ ${formData.message || "No additional details provided"}
 
           <div className="bg-gray-900 rounded-2xl overflow-hidden border border-gray-800">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.2234567890123!2d76.7234567890123!3d30.7234567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDQzJzI0LjQiTiA3NsKwNDMnMjQuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.2886057800215!2d76.6853307!3d30.702913599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fef0efbb4a3e7%3A0xd142d88e1f7bc21a!2sAlliance%20Media%20Labs!5e1!3m2!1sen!2sin!4v1768410985617!5m2!1sen!2sin"
               width="100%"
               height="400"
               style={{ border: 0 }}

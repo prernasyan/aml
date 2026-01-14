@@ -40,6 +40,8 @@ function App() {
       <Meta name="author" content="Alliance Media Labs" />
       <MetaLink rel="canonical" href="https://alliancemedialabs.com/" />
 
+      <MetaLink rel="icon" href="/favicon.ico" />
+
       <BrowserRouter basename={__BASE_PATH__}>
         <ScrollToTop />
         <AppRoutes />

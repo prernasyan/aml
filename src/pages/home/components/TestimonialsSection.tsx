@@ -94,6 +94,14 @@ const clientLogos = [
     name: "Aura",
     logo: "/images/testimonial/Aura_Logo.png",
   },
+  {
+    name: "Peninsula",
+    logo: "/images/testimonial/Peninsula-Logo.png",
+  },
+  {
+    name: "Sanfran",
+    logo: "/images/testimonial/Sanfran-logo.png",
+  },
 ];
 
 export default function TestimonialsSection() {
