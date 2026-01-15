@@ -13,10 +13,12 @@ function App() {
   return (
     <>
       {/* 🌍 Global Default SEO (Home page fallback) */}
-      <Title>Alliance Media Labs - Where Real Estate Meets Innovation</Title>
+      <Title>
+        Alliance Media Labs | Creative Tech & Branding Company for Real Estate
+      </Title>
       <Meta
         name="description"
-        content="Creative technology company specializing in real estate content creation and virtual visualization. Cinematic content & virtual experiences for modern developers."
+        content="Alliance Media Labs partners with real estate brands to design immersive visuals, digital ecosystems, and impactful brand experiences."
       />
       <Meta
         name="keywords"
