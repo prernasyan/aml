@@ -126,7 +126,7 @@ const portfolioItems = [
     id: 21,
     title: "GMI Elite Homes, Mohali",
     category: "Construction Updates",
-    image: "/images/portfolio/12.png",
+    image: "/images/portfolio/GMI.png",
     description:
       "Visual documentation of GMI Elite Homes, capturing the construction journey of a modern multi-tower residential project designed for refined, upscale living.",
     videoUrl:
@@ -136,7 +136,7 @@ const portfolioItems = [
     id: 22,
     title: "Prime Residences, Gurugram ",
     category: "Construction Updates",
-    image: "/images/portfolio/11.png",
+    image: "/images/portfolio/Prime-Residences.png",
     description:
       "Construction progress documentation capturing the development of Prime Residences — a contemporary residential project defined by modern architecture and thoughtfully curated amenities.",
     videoUrl:
@@ -265,7 +265,7 @@ const portfolioItems = [
     id: 23,
     title: "SAP Experience Center, Bengaluru",
     category: "VR Experience",
-    image: "/images/portfolio/23.png",
+    image: "/images/portfolio/SAP-Experience-Center.png",
     description:
       "Matterport-powered virtual tour created for the SAP Experience Center, delivering an immersive and interactive walkthrough.",
     videoUrl: "https://my.matterport.com/show/?m=ceeiCLowE6C",
@@ -275,7 +275,7 @@ const portfolioItems = [
     id: 24,
     title: "SAP S Market, Bengaluru",
     category: "VR Experience",
-    image: "/images/portfolio/24.png",
+    image: "/images/portfolio/SAP-S-Market.png",
     description:
       "High-fidelity Matterport virtual walkthrough developed for the SAP S Market.",
     videoUrl: " https://my.matterport.com/show/?m=R5jPFcjQaeh",
@@ -285,7 +285,7 @@ const portfolioItems = [
     id: 25,
     title: "Sanfran Sarovar Heights, Jhansi",
     category: "VR Experience",
-    image: "/images/portfolio/21.jpg",
+    image: "/images/portfolio/Sanfran-VR-Thumbnail.png",
     description:
       "Immersive virtual tour showcasing high-rise towers of Sanfran Sarovar Heights, highlighting advanced functionalities and modern residential design.",
     videoUrl: " https://amlabs.cloud/SSH_V3/",
