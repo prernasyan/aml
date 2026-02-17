@@ -18,7 +18,7 @@ export default function ContactSection() {
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -131,7 +131,7 @@ ${formData.message || "No additional details provided"}
                 <div>
                   <p className="font-semibold text-black">Location</p>
                   <p className="text-black/80">
-                    Unit 4, 3rd Floor, D-244, Sector 74, Mohali, Chandigarh
+                    D-244, 3rd Floor, Unit-4, Sector 74, Mohali, Chandigarh
                   </p>
                 </div>
               </div>

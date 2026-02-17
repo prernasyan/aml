@@ -102,6 +102,26 @@ const clientLogos = [
     name: "Sanfran",
     logo: "/images/testimonial/Sanfran-logo.png",
   },
+   {
+    name: "ATS",
+    logo: "/images/testimonial/ATS-Logo.png",
+  },
+   {
+    name: "Aditya Developers",
+    logo: "/images/testimonial/Aditya-Developers.png",
+  },
+   {
+    name: "Alphacorp",
+    logo: "/images/testimonial/Alphacorp-Logo.png",
+  },
+   {
+    name: "Pyramid",
+    logo: "/images/testimonial/Pyramid-Logo.png",
+  },
+   {
+    name: "Westway",
+    logo: "/images/testimonial/Westway-Logo.png",
+  },
 ];
 
 export default function TestimonialsSection() {

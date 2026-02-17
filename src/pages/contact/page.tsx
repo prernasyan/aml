@@ -67,7 +67,7 @@ export default function ContactPage() {
         ],
         address: {
           "@type": "PostalAddress",
-          streetAddress: "D-244, Sector 74",
+          streetAddress: "D-244, 3rd Floor, Unit-4, Sector 74",
           addressLocality: "Chandigarh",
           addressRegion: "Mohali",
           addressCountry: "IN",
@@ -81,7 +81,7 @@ export default function ContactPage() {
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -497,7 +497,7 @@ ${formData.message || "No additional details provided"}
                         rel="noopener noreferrer"
                         className="text-gray-300 hover:text-green-400 transition-colors cursor-pointer"
                       >
-                        Unit 4, 3rd Floor, D-244, Sector 74, Mohali, Chandigarh
+                        D-244, 3rd Floor, Unit-4, Sector 74, Mohali, Chandigarh
                       </a>
                     </div>
                   </div>
@@ -557,7 +557,7 @@ ${formData.message || "No additional details provided"}
                   onClick={() =>
                     window.open(
                       "https://calendly.com/lakshay-alliancemedialabs/30min?month=2025-10",
-                      "_blank"
+                      "_blank",
                     )
                   }
                 >

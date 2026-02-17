@@ -49,21 +49,30 @@ export default function VirtualRealityToursPage() {
     },
     {
       id: 4,
-      title: "Resort & Spa VR Journey",
+      title: "Mauli Housing, Mumbai",
       category: "VR Experience",
-      image: "/images/portfolio/25.jpg",
+      image: "/images/portfolio/Mauli-VR-Thumbnail.png",
       description:
-        "Comprehensive VR experience showcasing luxury resort amenities, spa facilities, and premium accommodation options.",
-      videoUrl:
-        "https://www.youtube.com/embed/BiCKdx0fDik?si=y4M05nZkVgJPmB9U&autoplay=1",
-      isExternal: false,
+        "An immersive 360° Virtual Reality tour for Mauli Housing, showcasing landmark views and multi-height outside perspectives for a complete spatial experience.",
+      videoUrl: "https://amlabs.cloud/Mauli_V06/",
+      isExternal: true,
+    },
+    {
+      id: 5,
+      title: "Dosti Greater Thane, Thane",
+      category: "VR Experience",
+      image: "/images/portfolio/Dosti-VR-Thumbnail.png",
+      description:
+        "A 360° VR real estate tour for Dosti Group, featuring a superimposed 3D building for a realistic virtual property walkthrough experience.",
+      videoUrl: "https://amlabs.cloud/Dosti_Mumbai_V01/",
+      isExternal: true,
     },
   ];
 
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({

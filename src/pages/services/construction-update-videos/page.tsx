@@ -19,7 +19,7 @@ export default function ConstructionUpdateVideosPage() {
   >("idle");
   const portfolioProjects = [
     {
-      id: 5,
+      id: 1,
       title: "Pyramid Alban, Gurugram",
       category: "Construction Updates",
       image: "/images/portfolio/10.png",
@@ -29,7 +29,7 @@ export default function ConstructionUpdateVideosPage() {
         "https://www.youtube.com/embed/QDJxopvP4Ro?si=y4M05nZkVgJPmB9U&autoplay=1",
     },
     {
-      id: 16,
+      id: 2,
       title: "Smart World- The Edition, Gurugram",
       category: "Construction Updates",
       image: "/images/portfolio/11.png",
@@ -39,14 +39,22 @@ export default function ConstructionUpdateVideosPage() {
         "https://www.youtube.com/embed/4RebMEfQr3Y?si=y4M05nZkVgJPmB9U&autoplay=1",
     },
     {
-      id: 17,
-      title: "IT Park Complex, Bangalore",
+      id: 3,
+      title: "Central Ikon, Noida",
       category: "Construction Updates",
-      image: "/images/portfolio/12.png",
+      image: "/images/portfolio/Central-Ikon-Thumbnail.png",
       description:
-        "Comprehensive construction documentation of large-scale IT park development featuring multiple office towers with advanced engineering and modern architectural elements.",
-      videoUrl:
-        "https://www.youtube.com/embed/BiCKdx0fDik?si=y4M05nZkVgJPmB9U&autoplay=1",
+        "Visual documentation of Central Ikon, showcasing the progressive development of a contemporary commercial and retail project crafted to reflect sophistication, scale, and premium positioning.",
+      videoUrl: "https://www.youtube.com/embed/k2jFPH49J0U?autoplay=1",
+    },
+    {
+      id: 4,
+      title: "The Kutumb, Ghaziabad",
+      category: "Construction Updates",
+      image: "/images/portfolio/Kutumb-Thumbnail.png",
+      description:
+        "Construction update video capturing the evolution of The Kutumb — a contemporary residential development distinguished by modern architectural design and carefully planned lifestyle amenities.",
+      videoUrl: "https://www.youtube.com/embed/ZLblD-AEilk?autoplay=1",
     },
   ];
   const handleSubmit = async (e: React.FormEvent) => {
@@ -138,7 +146,7 @@ ${formData.message || "No additional details provided"}
                   onClick={() =>
                     window.open(
                       "https://calendly.com/lakshay-alliancemedialabs/30min?month=2025-10",
-                      "_blank"
+                      "_blank",
                     )
                   }
                   className="shadow-lg backdrop-blur-sm"

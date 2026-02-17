@@ -14,14 +14,15 @@ export default function Home() {
   useEffect(() => {
     // Update SEO
     updateSEO({
-      title: "Alliance Media Labs - Where Real Estate Meets Innovation",
+      title:
+        "Alliance Media Labs | Creative Tech & Branding Company for Real Estate",
       description:
-        "Creative technology company specializing in real estate content creation and virtual visualization. Cinematic content & virtual experiences for modern developers.",
+        " Alliance Media Labs partners with real estate brands to design immersive visuals, digital ecosystems, and impactful brand experiences.",
       keywords:
         "real estate visualization, 3D walkthrough, VR tours, drone cinematography, architectural rendering, construction videos",
-      canonical: `${import.meta.env.VITE_SITE_URL || "https://example.com"}/`,
+      canonical: `${import.meta.env.VITE_SITE_URL || "https://www.alliancemedialabs.com"}/`,
       ogImage: `${
-        import.meta.env.VITE_SITE_URL || "https://example.com"
+        import.meta.env.VITE_SITE_URL || "https://www.alliancemedialabs.com"
       }/og-image.jpg`,
     });
 
@@ -32,9 +33,9 @@ export default function Home() {
       name: "Alliance Media Labs",
       description:
         "Creative technology company specializing in real estate content creation and virtual visualization",
-      url: import.meta.env.VITE_SITE_URL || "https://example.com",
+      url: import.meta.env.VITE_SITE_URL || "https://www.alliancemedialabs.com",
       logo: `${
-        import.meta.env.VITE_SITE_URL || "https://example.com"
+        import.meta.env.VITE_SITE_URL || "https://www.alliancemedialabs.com"
       }/logo.png`,
       contactPoint: {
         "@type": "ContactPoint",
@@ -44,7 +45,7 @@ export default function Home() {
       },
       address: {
         "@type": "PostalAddress",
-        streetAddress: "D-244, Sector 74",
+        streetAddress: " D-244, 3rd Floor, Unit-4, Sector 74",
         addressLocality: "Chandigarh",
         addressRegion: "Mohali",
         addressCountry: "IN",
